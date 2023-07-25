@@ -1,0 +1,403 @@
+<mxfile host="65bd71144e">
+    <diagram id="VHG2-tVIWDWCJHlA1pZh" name="Page-1">
+        <mxGraphModel dx="1769" dy="1254" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="12" y="30" width="970" height="1221" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Controller" style="swimlane;startSize=20;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="20" width="270" height="1201" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Initialisatie" style="rounded=1;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="81" y="52" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Ophalen gerecht" style="rounded=1;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="81" y="157" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Tonen gerecht" style="rounded=1;whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="81" y="262" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="3" source="7" target="10" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="200" as="sourcePoint"/>
+                        <mxPoint x="130" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="3" source="10" target="11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="200" as="sourcePoint"/>
+                        <mxPoint x="350" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="Business Logic" style="swimlane;startSize=20;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="270" y="20" width="400" height="1201" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Ophalen gerecht" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="24" y="50" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Ophalen keuken &amp;amp; type" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="229" y="149" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Ophalen ingredienten" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="232" y="249" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;" parent="4" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="173" y="1245" as="sourcePoint"/>
+                        <mxPoint x="173" y="-135" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="171" value="Berekenen prijs" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" parent="4" vertex="1">
+                    <mxGeometry x="236" y="947" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="172" value="Berekenen calorieen" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" parent="4" vertex="1">
+                    <mxGeometry x="236" y="1025" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="238" value="Ophalen gebruikersaccount" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="236" y="834" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="322" value="Ophalen bereiding" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="236" y="489" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="323" value="Ophalen rating" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="236" y="566" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="324" value="Ophalen favorieten" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="236" y="645" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="325" value="Ophalen opmerkingen" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
+                    <mxGeometry x="236" y="724" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="354" value="Berekenen gemiddelde rating" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" vertex="1" parent="4">
+                    <mxGeometry x="236" y="1103" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Model" style="swimlane;startSize=20;html=1;strokeColor=#FFFFFF;" parent="2" vertex="1">
+                    <mxGeometry x="670" y="20" width="300" height="1201" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Gerecht" style="swimlane;whiteSpace=wrap;html=1;" parent="5" vertex="1">
+                    <mxGeometry x="50" y="40" width="200" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;ul style=&quot;background-color: rgb(24, 20, 29);&quot;&gt;&lt;li&gt;id&lt;/li&gt;&lt;li&gt;Gerecht title&lt;/li&gt;&lt;li&gt;Gebruikersaccount_id&lt;/li&gt;&lt;li&gt;Datum toevoeging gerecht&lt;/li&gt;&lt;li&gt;Type_id&lt;/li&gt;&lt;li&gt;Keuken_id&lt;/li&gt;&lt;li&gt;Foto gerecht&lt;/li&gt;&lt;li&gt;Omschrijving gerecht kort&lt;/li&gt;&lt;li&gt;Omschrijving gerecht lang&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="19" vertex="1">
+                    <mxGeometry x="1" y="21" width="198" height="215" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Ophalen keuken &amp;amp; type" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=none;strokeColor=#FA6800;" parent="5" vertex="1">
+                    <mxGeometry x="90" y="304" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Ophalen ingredienten" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;" parent="5" vertex="1">
+                    <mxGeometry x="90" y="386" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="239" value="Ophalen gebruikersaccount" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#33FFFF;" parent="5" vertex="1">
+                    <mxGeometry x="81" y="834" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="326" value="Ophalen gerecht info" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#0000FF;" parent="5" vertex="1">
+                    <mxGeometry x="90" y="608" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="2" source="21" target="18" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="356" y="327" as="sourcePoint"/>
+                        <mxPoint x="406" y="277" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="645" y="135"/>
+                            <mxPoint x="645" y="100"/>
+                            <mxPoint x="565" y="100"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="261" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="2" source="26" target="22" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="491" y="407" as="sourcePoint"/>
+                        <mxPoint x="541" y="357" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="703" y="354"/>
+                            <mxPoint x="703" y="199"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="263" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="2" source="29" target="24" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="523" y="434" as="sourcePoint"/>
+                        <mxPoint x="573" y="384" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="652" y="436"/>
+                            <mxPoint x="652" y="299"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="271" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="2" source="239" target="238" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="850" y="537" as="sourcePoint"/>
+                        <mxPoint x="900" y="487" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="327" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="2" source="322" target="326" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1049" y="673" as="sourcePoint"/>
+                        <mxPoint x="1099" y="623" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="820" y="538"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="328" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="2" source="325" target="326" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1049" y="673" as="sourcePoint"/>
+                        <mxPoint x="1099" y="623" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="820" y="774"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="329" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="2" source="323" target="326" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1049" y="673" as="sourcePoint"/>
+                        <mxPoint x="1099" y="623" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="700" y="615"/>
+                            <mxPoint x="700" y="643"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="330" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="2" source="324" target="326" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1049" y="673" as="sourcePoint"/>
+                        <mxPoint x="1099" y="623" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="693" y="696"/>
+                            <mxPoint x="693" y="673"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="&lt;br&gt;&lt;br&gt;Actor" style="shape=actor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-140" y="530" width="107" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Public functions" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="316" y="-43" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Private functions" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="-43" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1028" y="30" width="850" height="224" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Controller" style="swimlane;startSize=20;html=1;" parent="35" vertex="1">
+                    <mxGeometry y="20" width="150" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Business Logic" style="swimlane;startSize=20;html=1;" parent="35" vertex="1">
+                    <mxGeometry x="150" y="20" width="400" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="Ophalen keuken &amp;amp; type" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FA6800;" parent="37" vertex="1">
+                    <mxGeometry x="38" y="66" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="Model" style="swimlane;startSize=20;html=1;" parent="35" vertex="1">
+                    <mxGeometry x="550" y="20" width="300" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="Keuken &amp;amp; type" style="swimlane;whiteSpace=wrap;html=1;" parent="38" vertex="1">
+                    <mxGeometry x="50" y="48" width="200" height="124.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="&lt;ul style=&quot;background-color: rgb(24, 20, 29);&quot;&gt;&lt;li&gt;id&lt;/li&gt;&lt;li&gt;record_type [K, T]&lt;/li&gt;&lt;li&gt;Omschrijving&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="103" vertex="1">
+                    <mxGeometry x="1" y="21" width="198" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="35" target="94" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="602" y="116" as="sourcePoint"/>
+                        <mxPoint x="495" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="90" value="" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1028" y="287" width="850" height="329" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="Controller" style="swimlane;startSize=20;html=1;" parent="90" vertex="1">
+                    <mxGeometry y="20" width="150" height="309" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="Business Logic" style="swimlane;startSize=20;html=1;" parent="90" vertex="1">
+                    <mxGeometry x="150" y="20" width="400" height="309" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="Ophalen ingredienten" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00CC00;" parent="92" vertex="1">
+                    <mxGeometry x="42" y="74" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="Ingredienten" style="swimlane;whiteSpace=wrap;html=1;" parent="92" vertex="1">
+                    <mxGeometry x="452" y="35" width="200" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="&lt;ul&gt;&lt;li&gt;id&lt;/li&gt;&lt;li&gt;Gerecht_id&lt;/li&gt;&lt;li&gt;Artikel_id&lt;/li&gt;&lt;li&gt;Artikel hoeveelheid&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="109" vertex="1">
+                    <mxGeometry y="10" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" value="" style="endArrow=classic;html=1;entryX=0.592;entryY=0.033;entryDx=0;entryDy=0;exitX=-0.003;exitY=0.506;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" parent="92" source="110" target="99" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="321" y="-164" as="sourcePoint"/>
+                        <mxPoint x="371" y="-214" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="384" y="104"/>
+                            <mxPoint x="384" y="41"/>
+                            <mxPoint x="113" y="41"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="112" value="Ophalen artikel" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;" parent="92" vertex="1">
+                    <mxGeometry x="236" y="74" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="92" source="112" target="99" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="331" y="-11" as="sourcePoint"/>
+                        <mxPoint x="381" y="-61" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="93" value="Model" style="swimlane;startSize=20;html=1;" parent="90" vertex="1">
+                    <mxGeometry x="550" y="20" width="300" height="309" as="geometry"/>
+                </mxCell>
+                <mxCell id="114" value="Ophalen artikel" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#CC0066;" parent="93" vertex="1">
+                    <mxGeometry x="92" y="197" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="90" source="114" target="112" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="481" y="9" as="sourcePoint"/>
+                        <mxPoint x="531" y="-41" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="446" y="247"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="95" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1372" y="1221" as="sourcePoint"/>
+                        <mxPoint x="1372" y="-39" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="96" value="Public functions" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1216" y="-47" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="Private functions" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1403" y="-47" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="269" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="6" target="7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="110" y="543" as="sourcePoint"/>
+                        <mxPoint x="160" y="493" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-88" y="130"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="275" value="" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1028" y="650" width="850" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="276" value="Controller" style="swimlane;startSize=20;html=1;" parent="275" vertex="1">
+                    <mxGeometry y="20" width="150" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="277" value="Business Logic" style="swimlane;startSize=20;html=1;" parent="275" vertex="1">
+                    <mxGeometry x="150" y="20" width="400" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="280" value="Ophalen gerecht info" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#0000FF;" parent="277" vertex="1">
+                    <mxGeometry x="38" y="59" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="332" value="Ophalen gebruikersaccount" style="rounded=1;whiteSpace=wrap;html=1;" parent="277" vertex="1">
+                    <mxGeometry x="234" y="277" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="333" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="277" source="332" target="280" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="63" y="250" as="sourcePoint"/>
+                        <mxPoint x="113" y="200" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="98" y="307"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="279" value="Model" style="swimlane;startSize=20;html=1;" parent="275" vertex="1">
+                    <mxGeometry x="550" y="20" width="300" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="288" value="Gerecht info" style="swimlane;whiteSpace=wrap;html=1;" parent="279" vertex="1">
+                    <mxGeometry x="51" y="41" width="200" height="193" as="geometry"/>
+                </mxCell>
+                <mxCell id="289" value="&lt;ul&gt;&lt;li&gt;id&lt;/li&gt;&lt;li&gt;Record_type [O, B, W, F]&lt;/li&gt;&lt;li&gt;Gerecht_id&lt;/li&gt;&lt;li&gt;Gebruikersaccunt_id&lt;/li&gt;&lt;li&gt;datum&lt;/li&gt;&lt;li&gt;Nummeriekveld&lt;/li&gt;&lt;li&gt;Tekstveld&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="288" vertex="1">
+                    <mxGeometry x="1" y="14" width="191" height="179" as="geometry"/>
+                </mxCell>
+                <mxCell id="334" value="Ophalen gebruikersaccount" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#33FFFF;" parent="279" vertex="1">
+                    <mxGeometry x="91" y="277" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="290" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="275" source="289" target="280" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="362" y="326" as="sourcePoint"/>
+                        <mxPoint x="412" y="276" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="495" y="165"/>
+                            <mxPoint x="495" y="109"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="335" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="275" source="334" target="332" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="469" y="291" as="sourcePoint"/>
+                        <mxPoint x="519" y="241" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="336" value="" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1909" y="650" width="850" height="224" as="geometry"/>
+                </mxCell>
+                <mxCell id="337" value="Controller" style="swimlane;startSize=20;html=1;" parent="336" vertex="1">
+                    <mxGeometry y="20" width="150" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="338" value="Business Logic" style="swimlane;startSize=20;html=1;" parent="336" vertex="1">
+                    <mxGeometry x="150" y="20" width="400" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="345" value="Ophalen gebruikersaccount" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#00FFFF;" parent="338" vertex="1">
+                    <mxGeometry x="44" y="82" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="340" value="Model" style="swimlane;startSize=20;html=1;" parent="336" vertex="1">
+                    <mxGeometry x="550" y="20" width="300" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="349" value="Gebruikersaccount" style="swimlane;whiteSpace=wrap;html=1;" parent="340" vertex="1">
+                    <mxGeometry x="43" y="41" width="214" height="142" as="geometry"/>
+                </mxCell>
+                <mxCell id="350" value="&lt;ul&gt;&lt;li&gt;id&lt;/li&gt;&lt;li&gt;Account naam&lt;/li&gt;&lt;li&gt;Password&lt;/li&gt;&lt;li&gt;Email&lt;/li&gt;&lt;li&gt;Account foto&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="349" vertex="1">
+                    <mxGeometry x="12" y="14" width="135" height="138" as="geometry"/>
+                </mxCell>
+                <mxCell id="351" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="336" source="349" target="345" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="348" y="296" as="sourcePoint"/>
+                        <mxPoint x="398" y="246" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="352" value="Public functions" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="2105" y="205" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="353" value="Private functions" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="2284" y="205" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="355" value="" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1906" y="287" width="850" height="224" as="geometry"/>
+                </mxCell>
+                <mxCell id="356" value="Controller" style="swimlane;startSize=20;html=1;" vertex="1" parent="355">
+                    <mxGeometry y="20" width="150" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="357" value="Business Logic" style="swimlane;startSize=20;html=1;" vertex="1" parent="355">
+                    <mxGeometry x="150" y="20" width="400" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="359" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;" edge="1" parent="357">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="197" y="709" as="sourcePoint"/>
+                        <mxPoint x="197" y="-79" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="364" value="Ophalen artikel" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#CC0066;" vertex="1" parent="357">
+                    <mxGeometry x="38" y="85" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="360" value="Model" style="swimlane;startSize=20;html=1;" vertex="1" parent="355">
+                    <mxGeometry x="550" y="20" width="300" height="204" as="geometry"/>
+                </mxCell>
+                <mxCell id="365" value="Artikel" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2506.5" y="336" width="205" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="366" value="&lt;ul&gt;&lt;li&gt;id&lt;/li&gt;&lt;li&gt;Artikel naam&lt;/li&gt;&lt;li&gt;Artikel beschrijving&lt;/li&gt;&lt;li&gt;Artikel calorieen individueel&lt;/li&gt;&lt;li&gt;Artikel prijs individueel&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="365">
+                    <mxGeometry x="-4.5" y="20" width="210" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="367" value="" style="endArrow=classic;html=1;" edge="1" parent="1" target="364">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2509" y="423" as="sourcePoint"/>
+                        <mxPoint x="2211" y="407" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
