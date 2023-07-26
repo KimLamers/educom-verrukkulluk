@@ -3,7 +3,7 @@
 // Aanpassen naar je eigen omgeving
 define("USER", "root");
 define("PASSWORD", "root");
-define("DATABASE", "verrukkulluk");
+define("DATABASE", "ver");
 define("HOST", "localhost");
 
 class database {
@@ -22,3 +22,5 @@ class database {
     }
 
 }
+
+echo "Connection has been established!";
