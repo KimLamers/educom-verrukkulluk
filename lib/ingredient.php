@@ -23,7 +23,7 @@ class ingredient {
 
     // private function select articles
 
-    private
+    
 
 
 
