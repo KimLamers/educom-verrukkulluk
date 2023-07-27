@@ -19,4 +19,5 @@ class user {
 
         return($user);
     }
+    
 }
