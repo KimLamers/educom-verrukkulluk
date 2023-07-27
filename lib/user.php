@@ -20,5 +20,3 @@ class user {
         return($user);
     }
 }
-
-echo "These are the users!";

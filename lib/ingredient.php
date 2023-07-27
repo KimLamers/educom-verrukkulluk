@@ -28,5 +28,3 @@ class ingredient {
 
 
 }
-
-echo "These are the ingredients!";
