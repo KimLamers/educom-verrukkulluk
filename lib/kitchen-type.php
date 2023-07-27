@@ -19,4 +19,5 @@ class kitchen_type {
 
         return($kitchen_type);
     }
+    
 }
