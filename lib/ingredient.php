@@ -23,8 +23,29 @@ class ingredient {
 
     // private function select articles
 
-    
+    private function selectArticles($articles_id) {
+        $this->articles = $articles;
 
+        $sql_1 = "select * from ingredients where id = $articles_id";
 
+        $result = mysqli_query($this->connection, $sql);
+        $articlesForIngredients = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
+        return ($articlesForIngredients);
+    }
+
+    // Make private function accessible in index
+
+    public function selectIngredientsBurger($articlesForIngredients) {
+        
+
+        $sql = "select * from ingredients where recipe_id = 2";
+        
+        $result = mysqli_query($this->connection, $sql);
+        $articleList = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+        return ($articleList);
+
+    }
 }
+
