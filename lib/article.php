@@ -20,6 +20,3 @@ class article {
     }
 }
 
-
-echo "These are the articles!";
-

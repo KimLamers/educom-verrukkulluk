@@ -20,5 +20,3 @@ class kitchen_type {
         return($kitchen_type);
     }
 }
-
-echo "These are the kitchen and types!";

@@ -2,9 +2,9 @@
 
 // Aanpassen naar je eigen omgeving
 define("USER", "root");
-define("PASSWORD", "root");
-define("DATABASE", "ver");
-define("HOST", "localhost");
+define("PASSWORD", "");
+define("DATABASE", "verrukkelluk");
+define("HOST", "127.0.0.1");
 
 class database {
 
@@ -14,7 +14,7 @@ class database {
        $this->connection = mysqli_connect(HOST,                                          
                                          USER, 
                                          PASSWORD,
-                                         DATABASE );
+                                         DATABASE ) or die( mysqli_connect_error() );
     }
 
     public function getConnection() {
@@ -22,5 +22,3 @@ class database {
     }
 
 }
-
-echo "Connection has been established!";
