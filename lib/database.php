@@ -21,5 +21,10 @@ class database {
         return($this->connection);
     }
 
+    public function __destructor() {
+        if(mysqli_close($this->connection)) {
+            echo "Connection Terminated";
+        }
+    }
 }
 
