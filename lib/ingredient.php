@@ -36,25 +36,27 @@ class ingredient {
     }
 
 
-    // make while loop through articles to get specific article info (private function)
+    // make while loop through $articleListForRecipe array to get filter for article_id and get corresponding value
     
         public function getArticleInfo($articleListForRecipe) {
             $getArticle_info = (array_filter($articleListForRecipe, function($key) {
                 return $key == 'article_id';
             }, ARRAY_FILTER_USE_KEY));
+
         }
     
     
-        // // private function select article info for each separate ingredient
+        // input value acquired above into selectArticles private function to get corresponding article info
 
-    // private function selectArticles($articles_id) {
-    //     $this->articles = $articles;
+    private function selectArticles($articles_id) {
+        $this->articles = $articles;
     
-    //     $sql = "select * from ingredients where id = $articles_id";
+        $sql = "select * from ingredients where id = $articles_id";
     
-    //     $result = mysqli_query($this->connection, $sql);
-    //     $articlesForIngredients = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $result = mysqli_query($this->connection, $sql);
+        $articlesForIngredients = mysqli_fetch_array($result, MYSQLI_ASSOC);
     
-    //     return($articlesForIngredients);
-    // }
+        return($articlesForIngredients);
+
+    }
 }
