@@ -22,77 +22,39 @@ class ingredient {
     }
 
 
-    // private function select articles
+    // Ingredient list per recipe
 
-    private function selectArticles($articles_id) {
-        $this->articles = $articles;
+    public function selectIngredientsForRecipe($recipe_id) {
+        
 
-        $sql_1 = "select * from ingredients where id = $articles_id";
-
+        $sql = "select * from ingredients where recipe_id = $recipe_id";
+        
         $result = mysqli_query($this->connection, $sql);
-        $articlesForIngredients = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $articleListForRecipe = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        return($articlesForIngredients);
+        return($articleListForRecipe);
     }
 
-    /// Make private function accessible in index for each recipe
 
-    // BURGER
-
-    public function selectIngredientsBurger($articlesForIngredients) {
-        
-
-        $sql = "select * from ingredients where recipe_id = 1";
-        
-        $result = mysqli_query($this->connection, $sql);
-        $articleListBurger = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    // make while loop through articles to get specific article info (private function)
     
-        return($articleListBurger);
-    }
+        public function getArticleInfo($articleListForRecipe) {
+            $getArticle_info = (array_filter($articleListForRecipe, function($key) {
+                return $key == 'article_id';
+            }, ARRAY_FILTER_USE_KEY));
+        }
+    
+    
+        // // private function select article info for each separate ingredient
 
-    // SUSHI
-
-    public function selectIngredientsSushi($articlesForIngredients) {
-
-        $sql = "select * from ingredients where recipe_id = 2";
-
-        $result = mysqli_query($this->connection, $sql);
-        $articleListSushi = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-        return($articleListSushi);
-    }
-
-    // RISOTTO
-
-    public function selectIngredientsRisotto($articlesForIngredients) {
-
-        $sql = "select * from ingredients where recipe_id = 3";
-
-        $result = mysqli_query($this->connection, $sql);
-        $articleListRisotto = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-        return($articleListRisotto);
-    }
-
-    // PIZZA
-
-    public function selectIngredientsPizza($articlesForIngredients) {
-
-        $sql = "select * from ingredients where recipe_id = 4";
-
-        $result = mysqli_query($this->connection, $sql);
-        $articleListPizza = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-        return($articleListPizza);
-    }
-
-    /// put individual recipe ingredients in array for index
-
-
-    // public function selectIngredientsForRecipe($arrayIngredients) {
-
-    //         foreach($arrayIngredients as $value) {
-    //         return($value);
-    //         }
-    //     }
+    // private function selectArticles($articles_id) {
+    //     $this->articles = $articles;
+    
+    //     $sql = "select * from ingredients where id = $articles_id";
+    
+    //     $result = mysqli_query($this->connection, $sql);
+    //     $articlesForIngredients = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
+    //     return($articlesForIngredients);
+    // }
 }
