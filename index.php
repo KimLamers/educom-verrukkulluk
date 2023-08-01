@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
 require_once("lib/database.php");
 require_once("lib/article.php");
@@ -17,6 +18,7 @@ $ingredient = new ingredient($db->getConnection());
 $articleList = new ingredient($db->getConnection());
 $recipe_info = new recipe_info($db->getConnection());
 $articleInfo = new ingredient($db->getConnection());
+
 
 
 
