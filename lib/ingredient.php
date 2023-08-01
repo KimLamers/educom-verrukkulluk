@@ -11,6 +11,8 @@ class ingredient {
     // public function select ingredients
 
     public function selectIngredient($ingredients_id) {
+        //clean data
+        $ingredients_id = mysqli_real_escape_string($this->connection, $ingredients_id);
 
         $sql = "SELECT * FROM ingredients WHERE id = $ingredients_id";
 
@@ -23,7 +25,8 @@ class ingredient {
     // Ingredient list per recipe
 
     public function selectIngredientsForRecipe($recipe_id) {
-        
+        // clean data
+        $recipe_id = mysqli_real_escape_string($this->connection, $recipe_id);
 
         $sql = "SELECT * FROM ingredients WHERE recipe_id = $recipe_id";
         

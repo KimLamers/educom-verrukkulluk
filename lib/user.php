@@ -12,6 +12,10 @@ class user {
 
     public function selectUser($user_id) {
 
+        // clean data
+        $user_id = mysqli_real_escape_string($this->connection, $user_id);
+
+        // sql query
         $sql = "SELECT * FROM user WHERE id = $user_id";
 
         $results = mysqli_query($this->connection, $sql);

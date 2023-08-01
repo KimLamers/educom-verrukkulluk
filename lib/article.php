@@ -9,7 +9,10 @@ class article {
     }
   
     public function selectArticle($articles_id) {
+        // clean data
+        $articles_id = mysqli_real_escape_string($this->connection, $articles_id);
 
+        // sql query
         $sql = "SELECT * FROM articles WHERE id = $articles_id";
         
         $result = mysqli_query($this->connection, $sql);

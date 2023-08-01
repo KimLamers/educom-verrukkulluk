@@ -12,6 +12,10 @@ class kitchen_type {
 
     public function selectKitchenType($kitchen_type_id) {
 
+        // clean data
+        $kitchen_type_id = mysqli_real_escape_string($this->connection, $kitchen_type_id);
+
+        // sql query
         $sql = "SELECT * FROM kitchen_type WHERE id = $kitchen_type_id";
 
         $result = mysqli_query($this->connection, $sql);
