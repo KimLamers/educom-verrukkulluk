@@ -10,7 +10,7 @@ class article {
   
     public function selectArticle($articles_id) {
 
-        $sql = "select * from articles where id = $articles_id";
+        $sql = "SELECT * FROM articles WHERE id = $articles_id";
         
         $result = mysqli_query($this->connection, $sql);
         $article = mysqli_fetch_array($result, MYSQLI_ASSOC);
