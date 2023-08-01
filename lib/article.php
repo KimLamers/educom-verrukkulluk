@@ -21,6 +21,7 @@ class article {
         return($article);
 
     }
+    //
     
 }
 
