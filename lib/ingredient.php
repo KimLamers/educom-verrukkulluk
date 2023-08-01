@@ -1,7 +1,5 @@
 <?php
 
-
-
 class ingredient {
     
     
@@ -19,7 +17,7 @@ class ingredient {
 
     
 
-    // public function select ingredients
+    // public function select ingredients + private select articles
 
     public function selectIngredient($recipe_id) {
         //clean data
@@ -39,9 +37,12 @@ class ingredient {
                 "recipe_id" => $ingredients['recipe_id'],
                 "article_id" => $ingredients['article_id'],
                 "number" => $ingredients['number'],
-                "article_name" => $articles['article_name'],
-                "article_description" => $articles['article_description'],
-                
+                "article_name" => $article['article_name'],
+                "article_description" => $article['article_description'],
+                "article_price" => $article['article_price'],
+                "article_unit" => $article['article_unit'],
+                "article_packaging" => $article['article_package'],
+                "calories" => $article['calories'],
             ];
         }
 
