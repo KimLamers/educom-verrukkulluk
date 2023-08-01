@@ -18,7 +18,6 @@ class article {
         return($article);
 
     }
-    
 }
 
 

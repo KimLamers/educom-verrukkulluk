@@ -5,9 +5,6 @@ define("USER", "root");
 define("PASSWORD", "");
 define("DATABASE", "verrukkelluk");
 define("HOST", "127.0.0.1");
-define("PASSWORD", "");
-define("DATABASE", "verrukkelluk");
-define("HOST", "127.0.0.1");
 
 class database {
 
@@ -17,7 +14,6 @@ class database {
        $this->connection = mysqli_connect(HOST,                                          
                                          USER, 
                                          PASSWORD,
-                                         DATABASE ) or die( mysqli_connect_error() );
                                          DATABASE ) or die( mysqli_connect_error() );
     }
 
