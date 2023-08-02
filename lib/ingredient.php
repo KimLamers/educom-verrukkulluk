@@ -41,7 +41,7 @@ class ingredient {
                 "article_description" => $article['article_description'],
                 "article_price" => $article['article_price'],
                 "article_unit" => $article['article_unit'],
-                "article_packaging" => $article['article_package'],
+                "article_packaging" => $article['article_packaging'],
                 "calories" => $article['calories'],
             ];
         }
