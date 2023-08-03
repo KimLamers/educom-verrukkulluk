@@ -84,6 +84,27 @@ class recipe_info {
         }
         return($recipeInfoArray);
     }
+
+    // public function add record_type F to recipe_info for user. Need user_id, recipe_id and record_type.
+    
+    // to add to database: INSERT  (INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value)
+    // to delete from database: DELETE (DELETE FROM tabele_name WHERE some_column = some_value)
+
+        // if user did not already add to favorites
+
+        // add to favorites
+
+        // if already added, continue
+
+    // public function delete record_type F from recipe_info for user
+
+        // if favorites
+
+        // delete from favorites
+
+        // if not in favorites, continue
+
+    
 }
     
 
