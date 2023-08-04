@@ -17,7 +17,7 @@ $kitchen_type = new kitchen_type($db->getConnection());
 $ingredient = new ingredient($db->getConnection());
 $recipe_info = new recipe_info($db->getConnection());
 $addRecipeToFavorites = new recipe_info($db->getConnection());
-$deleteRecipeFromFavorites = new recipe_info($db->getConnetion());
+$deleteRecipeFromFavorites = new recipe_info($db->getConnection());
 
 
 /// VERWERK 
@@ -26,8 +26,8 @@ $data_user = $user->selectUser(1);
 $data_kitchen_type = $kitchen_type->selectKitchenType(10);
 $data_ingredient = $ingredient->selectIngredient(1); // Select individual ingredient
 $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
-$data_addRecipeToFavorites = $addRecipeToFavorites->addRecipeToFavorites(NULL, 2, 2); // recipe_info_id, recipe_id, user_id
-$data_deleteRecipeFromFavorites = $deleteRecipeFromFavorites->deleteRecipeFromFavorites();
+// data_addRecipeToFavorites = $addRecipeToFavorites->addRecipeToFavorites(NULL, 4, 1); // recipe_info_id, recipe_id, user_id
+// $data_deleteRecipeFromFavorites = $deleteRecipeFromFavorites->deleteRecipeFromFavorites(4, 1); // recipe_id, user_id
 
 
 

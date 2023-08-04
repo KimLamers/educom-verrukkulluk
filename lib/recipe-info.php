@@ -113,26 +113,23 @@ class recipe_info {
     // to delete from database: DELETE (DELETE FROM tabele_name WHERE some_column = some_value)
 
 
-    public function deleteRecipeFromFavorites($recipe_info_id, $recipe_id, $user_id) {
+    public function deleteRecipeFromFavorites($recipe_id, $user_id) {
         // check if record already exists
         // clean data
-        $recipe_info_id = mysqli_real_escape_string($this->connection, $recipe_info_id);
         $recipe_id = mysqli_real_escape_string($this->connection, $recipe_id);
-        $user_id = mysqli_real_escape_string($this->connetion, $user_id);
+        $user_id = mysqli_real_escape_string($this->connection, $user_id);
 
         // sql query
-        $sql = "DELETE FROM 'recipe_info' WHERE 'record_info' = 'F' AND user_id = 1";
+        $sql = "DELETE FROM recipe_info WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'F' ";
 
         // return success
-        if($this->connection($sql) === TRUE ) {
-            echo "deletion successful!";
+        if (mysqli_query($this->connection, $sql)) {
+            echo "Successfully deleted recipe from favorites!";
         } else {
-            echo "error! " .$sql . "<br>". $this->connection->error;
+            echo "Error: Unable to execute $sql. " . mysqli_error($this->connection);
         }
+
     }
 }
-    
-
-
 
 ?>
