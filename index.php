@@ -7,6 +7,7 @@ require_once("lib/user.php");
 require_once("lib/kitchen-type.php");
 require_once("lib/ingredient.php");
 require_once("lib/recipe-info.php");
+require_once("lib/recipe.php");
 
 
 /// INIT
@@ -18,6 +19,7 @@ $ingredient = new ingredient($db->getConnection());
 $recipe_info = new recipe_info($db->getConnection());
 $addRecipeToFavorites = new recipe_info($db->getConnection());
 $deleteRecipeFromFavorites = new recipe_info($db->getConnection());
+$recipe = new recipe($db->getConnection());
 
 
 /// VERWERK 
@@ -28,6 +30,7 @@ $data_ingredient = $ingredient->selectIngredient(1); // Select individual ingred
 $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
 // data_addRecipeToFavorites = $addRecipeToFavorites->addRecipeToFavorites(NULL, 4, 1); // recipe_info_id, recipe_id, user_id
 // $data_deleteRecipeFromFavorites = $deleteRecipeFromFavorites->deleteRecipeFromFavorites(4, 1); // recipe_id, user_id
+$data_recipe = $recipe->selectRecipeById(1);
 
 
 
@@ -37,3 +40,4 @@ $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
 // var_dump($data_kitchen_type);
 // var_dump($data_ingredient);
 // var_dump($data_recipe_info);
+var_dump($data_recipe);
