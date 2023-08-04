@@ -97,14 +97,14 @@ class recipe_info {
         $user_id = mysqli_real_escape_string($this->connection, $user_id);
 
         // sql query
-        $sql = "INSERT INTO 'recipe_info' ('id', 'record_type','recipe_id', 'user_id', 'date', 'number_field', 'text_field')
-                VALUES (NULL, 'F', '1', '1', NULL, NULL, NULL)";
+        $sql = "INSERT INTO recipe_info (id, record_type, recipe_id, user_id, date, number_field, text_field)
+                VALUES (NULL, 'F', $recipe_id, $user_id, NULL, NULL, NULL)";
 
         // return success
-        if($this->connection($sql) === TRUE ) {
-            echo "addition successful!";
+        if (mysqli_query($this->connection, $sql)) {
+            echo "Successfully added recipe to favorites!";
         } else {
-            echo "error! ".$sql . "<br>" . $this->connection->error;
+            echo "Error: Unable to execute $sql. " . mysqli_error($this->connection);
         }
 
     }
