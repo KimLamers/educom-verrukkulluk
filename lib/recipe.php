@@ -8,8 +8,7 @@ class recipe {
     private $type;
     private $ingredient;
     private $article;
-    // calculate calories
-    // calculate price
+
     // select rating
     // select steps
     // select remarks
@@ -104,7 +103,21 @@ class recipe {
                 }
         }
         return($recipeArray);
+        }
 
+        public function calcPriceForRecipe($recipe_id) {
+            // get recipeArray from selectRecipeById
+            $recipeArray = $this->selectRecipeById($recipe_id, MYSQLI_ASSOC);
+            $recipePrice = array_sum(array_column($recipeArray, 'article_price'));
+            return($recipePrice);
+        }
+
+        public function calcCaloriesForRecipe($recipe_id) {
+            // get recipeArray from selectRecipeById
+            $recipeArray = $this->selectRecipeById($recipe_id, MYSQLI_ASSOC);
+            $recipeCalories = array_sum(array_column($recipeArray, 'article_calories'));
+            return($recipeCalories);
+        }
 
     }
 
@@ -112,6 +125,7 @@ class recipe {
 
 
 
-}
+
+
 
 ?>

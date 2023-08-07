@@ -20,6 +20,8 @@ $recipe_info = new recipe_info($db->getConnection());
 $addRecipeToFavorites = new recipe_info($db->getConnection());
 $deleteRecipeFromFavorites = new recipe_info($db->getConnection());
 $recipe = new recipe($db->getConnection());
+$priceRecipe = new recipe($db->getConnection());
+$caloriesRecipe = new recipe($db->getConnection());
 
 
 /// VERWERK 
@@ -31,8 +33,8 @@ $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
 // data_addRecipeToFavorites = $addRecipeToFavorites->addRecipeToFavorites(NULL, 4, 1); // recipe_info_id, recipe_id, user_id
 // $data_deleteRecipeFromFavorites = $deleteRecipeFromFavorites->deleteRecipeFromFavorites(4, 1); // recipe_id, user_id
 $data_recipe = $recipe->selectRecipeById(2);
-
-
+$data_priceRecipe = $priceRecipe->calcPriceForRecipe(1); // by recipe_id
+$data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_id
 
 /// RETURN
 // echo "<pre>; print_r($data_article); echo "</pre>;
@@ -40,4 +42,6 @@ $data_recipe = $recipe->selectRecipeById(2);
 // echo "<pre>; print_r($data_kitchen_type); echo "</pre>;
 // echo "<pre>; print_r($data_ingredient); echo "</pre>;
 // echo "<pre>; print_r($data_recipe_info); echo "</pre>;
-echo "<pre>"; print_r($data_recipe); echo "</pre";
+// echo "<pre>"; print_r($data_recipe); echo "</pre";
+echo "<pre>"; print_r("The total price for this recipe is " .$data_priceRecipe. " cents."); echo "</pre>";
+echo "<pre>"; print_r("The total calories for this recipe is " .$data_caloriesRecipe. " calories."); echo "</pre>";
