@@ -6,7 +6,8 @@ class recipe {
     private $user;
     private $kitchen;
     private $type;
-    // private $ingredient;
+    private $ingredient;
+    private $article;
     // calculate calories
     // calculate price
     // select rating
@@ -19,6 +20,8 @@ class recipe {
         $this->user = new user($connection);
         $this->kitchen = new kitchen_type($connection);
         $this->type = new kitchen_type($connection);
+        $this->ingredient = new ingredient($connection);
+        $this->article = new article($connection);
     }
 
     private function selectUser($user_id) {
@@ -27,6 +30,14 @@ class recipe {
 
     private function selectKitchenType($kitchen_type_id) {
         return($this->kitchen->selectKitchenType($kitchen_type_id));
+    }
+
+    private function selectIngredient($recipe_id) {
+        return($this->ingredient->selectIngredient($recipe_id));
+    }
+
+    private function selectArticle($ingredient_id) {
+        return($this->article->selectArticle($ingredient_id));
     }
 
 
@@ -39,7 +50,10 @@ class recipe {
         $sql = "SELECT * FROM recipe WHERE id = $recipe_id";
         $result = mysqli_query($this->connection, $sql);
 
-        // $recipe = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        // sql query ingredients
+        $sql_ingredients = "SELECT * FROM ingredients WHERE recipe_id = $recipe_id";
+        $resuls_ingredients = mysqli_query($this->connection, $sql_ingredients);
+
         $recipeArray = [];
 
         while($recipe = mysqli_fetch_array($result)) {
@@ -49,10 +63,8 @@ class recipe {
             $kitchen = $this->selectKitchenType($recipe['kitchen_id'], MYSQLI_ASSOC);
             // get type
             $type = $this->selectKitchenType($recipe['type_id'], MYSQLI_ASSOC);
-
-
             $recipeArray[] = [
-                "id" => $recipe['id'],
+                "recipe_id" => $recipe['id'],
                 "kitchen_id" => $recipe['kitchen_id'],
                 "type_id" => $recipe['type_id'],
                 "user_id" => $recipe['user_id'],
@@ -69,10 +81,27 @@ class recipe {
                 "description_kitchen" => $kitchen['description'],
                 "record_type_type" => $type['record_type'],
                 "description_type" => $type['description'],
-                
-                
             ];
-
+            // get ingredient and articles
+            $ingredient = $this->selectIngredient($recipe['id'], MYSQLI_ASSOC);
+                while($ingredient = mysqli_fetch_array($resuls_ingredients)) {                    
+                    $recipeArray[] = [
+                        "ingredient_id" => $ingredient['id'],
+                        "article_id" => $ingredient['article_id'],
+                        "number" => $ingredient['number'],
+                    ];
+                    // get article
+                    $article = $this->selectArticle($ingredient['article_id'], MYSQLI_ASSOC);
+                        $recipeArray[] = [
+                            "article_id" => $article['id'],
+                            "article_name" => $article['article_name'],
+                            "article_description" => $article['article_description'],
+                            "article_price" => $article['article_price'],
+                            "article_unit" => $article['article_unit'],
+                            "article_packaging" => $article['article_packaging'],
+                            "article_calories" => $article['article_calories'],
+                        ];
+                }
         }
         return($recipeArray);
 

@@ -30,14 +30,14 @@ $data_ingredient = $ingredient->selectIngredient(1); // Select individual ingred
 $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
 // data_addRecipeToFavorites = $addRecipeToFavorites->addRecipeToFavorites(NULL, 4, 1); // recipe_info_id, recipe_id, user_id
 // $data_deleteRecipeFromFavorites = $deleteRecipeFromFavorites->deleteRecipeFromFavorites(4, 1); // recipe_id, user_id
-$data_recipe = $recipe->selectRecipeById(1);
+$data_recipe = $recipe->selectRecipeById(2);
 
 
 
 /// RETURN
-// var_dump($data_article);
-// var_dump($data_user);
-// var_dump($data_kitchen_type);
-// var_dump($data_ingredient);
-// var_dump($data_recipe_info);
-var_dump($data_recipe);
+// echo "<pre>; print_r($data_article); echo "</pre>;
+// echo "<pre>; print_r($data_user); echo "</pre>;
+// echo "<pre>; print_r($data_kitchen_type); echo "</pre>;
+// echo "<pre>; print_r($data_ingredient); echo "</pre>;
+// echo "<pre>; print_r($data_recipe_info); echo "</pre>;
+echo "<pre>"; print_r($data_recipe); echo "</pre";

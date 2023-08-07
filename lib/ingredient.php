@@ -42,7 +42,7 @@ class ingredient {
                 "article_price" => $article['article_price'],
                 "article_unit" => $article['article_unit'],
                 "article_packaging" => $article['article_packaging'],
-                "calories" => $article['calories'],
+                "article_calories" => $article['article_calories'],
             ];
         }
 
@@ -50,48 +50,6 @@ class ingredient {
 
     }
 
-    // // Ingredient list per recipe
-
-    // public function selectIngredientsForRecipe($recipe_id) {
-    //     // clean data
-    //     $recipe_id = mysqli_real_escape_string($this->connection, $recipe_id);
-
-    //     $sql = "SELECT * FROM ingredients WHERE recipe_id = $recipe_id";
-    //     $result = mysqli_query($this->connection, $sql);
-
-    //     $articleListForRecipe = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    //     return($articleListForRecipe);
-    // }
-
-    // // init private selectArticle function
-
-    // private function selectArticle($articles_id) {
-    //     $this->articles = $articles;
-
-    //     // clean data
-    //     $articles_id = mysqli_real_escape_string($this->connection, $articles_id);
-
-    //     // sql query
-    //     $sql = "SELECT * FROM articles WHERE id = $articles_id";
-        
-    //     $result = mysqli_query($this->connection, $sql);
-    //     $article = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-    //     return($article);
-    // }
-
-
-    // // make foreach loop through articles to get specific article_ids
-    
-    // public function getArticleInfoFromRecipe($articleListForRecipe) {
-    //     $relatedArticles = [];
-
-    //     foreach($articleListForRecipe as $value) {
-    //         $article_id = $value['article_id'];
-    //             if($article_id) {
-    //                 $relatedArticles[] = selectArticle($articles_id);
-    //             }
-    //     }
-    //     return($relatedArticles);
-    // }    
 }
+
+?>
