@@ -8,8 +8,8 @@ class recipe {
     private $type;
     private $ingredient;
     private $article;
+    private $rating;
 
-    // select rating
     // select steps
     // select remarks
     // determine favorite
@@ -21,6 +21,7 @@ class recipe {
         $this->type = new kitchen_type($connection);
         $this->ingredient = new ingredient($connection);
         $this->article = new article($connection);
+        $this->rating = new recipe_info($connection);
     }
 
     private function selectUser($user_id) {
@@ -37,6 +38,10 @@ class recipe {
 
     private function selectArticle($ingredient_id) {
         return($this->article->selectArticle($ingredient_id));
+    }
+
+    private function selectRecipeInfoById($recipe_id) {
+        return($this->rating->selectRecipeInfoById($recipe_id));
     }
 
 
@@ -117,6 +122,25 @@ class recipe {
             $recipeArray = $this->selectRecipeById($recipe_id, MYSQLI_ASSOC);
             $recipeCalories = array_sum(array_column($recipeArray, 'article_calories'));
             return($recipeCalories);
+        }
+
+        public function selectRating($recipe_id) {
+            // get recipe rating from recipe_info -> all record_type=W.
+            // add ratings together then devide by total number of ratings
+            $rating = $this->selectRecipeInfoById($recipe_id);
+            $sql_rating = "SELECT * FROM recipe_info WHERE record_type = 'W' AND recipe_id = $recipe_id";
+            //return($rating);
+            $id = 'W';
+            foreach($rating as $key => $value) {
+                if($value['record_type'] === $id) {
+                    $ratingArray = $rating[$key];
+                    return($ratingArray['number_field']);
+                    // get each individual number_field, add them and device by total n
+                    // SELECT * FROM recipe_info WHERE record_type = 'W' AND recipe_id = $recipe_id
+                }
+            }
+            
+
         }
 
     }

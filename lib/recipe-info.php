@@ -16,11 +16,11 @@ class recipe_info {
     }
 
 
-    public function selectRecipeInfoById($recipe_info_id) {
+    public function selectRecipeInfoById($recipe_id) {
         //clean data
-        $recipe_info_id = mysqli_real_escape_string($this->connection, $recipe_info_id);
+        $recipe_id = mysqli_real_escape_string($this->connection, $recipe_id);
 
-        $sql = "SELECT * FROM recipe_info WHERE recipe_id = 1";
+        $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id";
         $result = mysqli_query($this->connection, $sql);
         
         // $recipe_info = mysqli_fetch_array($result, MYSQLI_ASSOC);
