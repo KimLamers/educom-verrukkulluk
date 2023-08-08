@@ -24,6 +24,7 @@ $priceRecipe = new recipe($db->getConnection());
 $caloriesRecipe = new recipe($db->getConnection());
 $ratingRecipe = new recipe($db->getConnection());
 $stepsRecipe = new recipe($db->getConnection());
+$remarks = new recipe($db->getConnection());
 
 
 /// VERWERK 
@@ -39,7 +40,7 @@ $data_priceRecipe = $priceRecipe->calcPriceForRecipe(1); // by recipe_id
 $data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_id
 $data_ratingRecipe = $ratingRecipe->selectRating(1);
 $data_stepsRecipe = $stepsRecipe->selectSteps(1);
-
+$data_remarks = $remarks->selectRemarks(1);
 
 /// RETURN
 // echo "<pre>; print_r($data_article); echo "</pre>;
@@ -51,4 +52,5 @@ $data_stepsRecipe = $stepsRecipe->selectSteps(1);
 // echo "<pre>"; print_r("The total price for this recipe is " .$data_priceRecipe. " cents."); echo "</pre>";
 // echo "<pre>"; print_r("The total calories for this recipe is " .$data_caloriesRecipe. " calories."); echo "</pre>";
 // echo "<pre>"; print_r("The average rating for recipe is " .$data_ratingRecipe. " stars."); echo "</pre>";
-echo "<pre>"; print_r($data_stepsRecipe); echo "</pre>";
+// echo "<pre>"; print_r($data_stepsRecipe); echo "</pre>";
+echo "<pre>"; print_r($data_remarks); echo "</pre>";

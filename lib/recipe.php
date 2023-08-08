@@ -8,10 +8,6 @@ class recipe {
     private $type;
     private $ingredient;
     private $article;
-    private $rating;
-    private $steps;
-
-    // select remarks
     // determine favorite
 
     public function __construct($connection) {
@@ -21,8 +17,7 @@ class recipe {
         $this->type = new kitchen_type($connection);
         $this->ingredient = new ingredient($connection);
         $this->article = new article($connection);
-        $this->rating = new recipe_info($connection);
-        $this->steps = new recipe_info($connection);
+        $this->ratingStepsRemarks = new recipe_info($connection);
     }
 
     private function selectUser($user_id) {
@@ -42,7 +37,7 @@ class recipe {
     }
 
     private function selectRecipeInfoById($recipe_id) {
-        return($this->rating->selectRecipeInfoById($recipe_id));
+        return($this->ratingStepsRemarks->selectRecipeInfoById($recipe_id));
     }
 
 
@@ -157,6 +152,26 @@ class recipe {
                 }
             }
             return($steps);
+        }
+
+        public function selectRemarks($recipe_id) {
+            // initialise recipe_info
+            $initRemarks = $this->selectRecipeInfoById($recipe_id);
+
+            // loop through array to find record_type = O with corresponding text_field, user_id, username, date and user_image
+            foreach($initRemarks as $key => $value) {
+                if($value['record_type'] === 'O') {
+                    $remarks[] = [
+                        $value['text_field'],
+                        $value['user_id'],
+                        $value['username'],
+                        $value['date'],
+                        $value['user_image'],
+                    ];
+                }
+            }
+            return($remarks);
+
         }
 
     }
