@@ -25,6 +25,7 @@ $caloriesRecipe = new recipe($db->getConnection());
 $ratingRecipe = new recipe($db->getConnection());
 $stepsRecipe = new recipe($db->getConnection());
 $remarks = new recipe($db->getConnection());
+$determineFavorite = new recipe($db->getConnection());
 
 
 /// VERWERK 
@@ -38,9 +39,11 @@ $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
 $data_recipe = $recipe->selectRecipeById(2);
 $data_priceRecipe = $priceRecipe->calcPriceForRecipe(1); // by recipe_id
 $data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_id
-$data_ratingRecipe = $ratingRecipe->selectRating(1);
-$data_stepsRecipe = $stepsRecipe->selectSteps(1);
-$data_remarks = $remarks->selectRemarks(1);
+$data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
+$data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
+$data_remarks = $remarks->selectRemarks(1); // by recipe_id
+$data_determineFavorite = $determineFavorite->determineFavorite(4,1); // by recipe_id, user_id
+
 
 /// RETURN
 // echo "<pre>; print_r($data_article); echo "</pre>;
@@ -53,4 +56,5 @@ $data_remarks = $remarks->selectRemarks(1);
 // echo "<pre>"; print_r("The total calories for this recipe is " .$data_caloriesRecipe. " calories."); echo "</pre>";
 // echo "<pre>"; print_r("The average rating for recipe is " .$data_ratingRecipe. " stars."); echo "</pre>";
 // echo "<pre>"; print_r($data_stepsRecipe); echo "</pre>";
-echo "<pre>"; print_r($data_remarks); echo "</pre>";
+// echo "<pre>"; print_r($data_remarks); echo "</pre>";
+echo "<pre>"; print_r($data_determineFavorite); echo "</pre>";
