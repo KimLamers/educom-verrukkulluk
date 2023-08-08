@@ -9,8 +9,8 @@ class recipe {
     private $ingredient;
     private $article;
     private $rating;
+    private $steps;
 
-    // select steps
     // select remarks
     // determine favorite
 
@@ -22,6 +22,7 @@ class recipe {
         $this->ingredient = new ingredient($connection);
         $this->article = new article($connection);
         $this->rating = new recipe_info($connection);
+        $this->steps = new recipe_info($connection);
     }
 
     private function selectUser($user_id) {
@@ -140,6 +141,22 @@ class recipe {
             $ratingAverage = $ratingSum / count($rating);
             return($ratingAverage);
 
+        }
+
+        public function selectSteps($recipe_id) {
+            // initialise recipe_info
+            $initSteps = $this->selectRecipeInfoById($recipe_id);
+
+            // loop through array to find record_type = B with corresponding number_field (step number) and text_field (step descriptions)
+            foreach($initSteps as $key => $value) {
+                if($value['record_type'] === 'B') {
+                    $steps[] = [
+                        $value['number_field'],
+                        $value['text_field'],
+                    ];
+                }
+            }
+            return($steps);
         }
 
     }
