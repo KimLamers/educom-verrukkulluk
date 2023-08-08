@@ -48,4 +48,5 @@ $data_ratingRecipe = $ratingRecipe->selectRating(1);
 // echo "<pre>"; print_r($data_recipe); echo "</pre";
 // echo "<pre>"; print_r("The total price for this recipe is " .$data_priceRecipe. " cents."); echo "</pre>";
 // echo "<pre>"; print_r("The total calories for this recipe is " .$data_caloriesRecipe. " calories."); echo "</pre>";
-echo "<pre>"; print_r("The rating for this recipe is " .$data_ratingRecipe. " stars."); echo "</pre>";
+echo "<pre>"; print_r("The average rating for recipe is " .$data_ratingRecipe. " stars."); echo "</pre>";
+// var_dump($data_ratingRecipe);

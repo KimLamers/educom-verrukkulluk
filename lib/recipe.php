@@ -125,21 +125,20 @@ class recipe {
         }
 
         public function selectRating($recipe_id) {
-            // get recipe rating from recipe_info -> all record_type=W.
-            // add ratings together then devide by total number of ratings
-            $rating = $this->selectRecipeInfoById($recipe_id);
-            $sql_rating = "SELECT * FROM recipe_info WHERE record_type = 'W' AND recipe_id = $recipe_id";
-            //return($rating);
-            $id = 'W';
-            foreach($rating as $key => $value) {
-                if($value['record_type'] === $id) {
-                    $ratingArray = $rating[$key];
-                    return($ratingArray['number_field']);
-                    // get each individual number_field, add them and device by total n
-                    // SELECT * FROM recipe_info WHERE record_type = 'W' AND recipe_id = $recipe_id
+            // initialise recipe_info
+            $initRating = $this->selectRecipeInfoById($recipe_id);
+
+            // loop through array to find record_type = W with correstponding number_field (rating)
+            foreach($initRating as $key => $value) {
+                if($value['record_type'] === 'W') {
+                    $rating[] = $value['number_field'];
                 }
             }
             
+            // calculate average rating
+            $ratingSum = array_sum($rating);
+            $ratingAverage = $ratingSum / count($rating);
+            return($ratingAverage);
 
         }
 
