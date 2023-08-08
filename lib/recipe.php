@@ -178,16 +178,43 @@ class recipe {
             // check if for recipe_id a user_id already has a record_type = F
             // 1 if true, 0 if false
 
-            $sql_favorite = "SELECT * FROM recipe_info WHERE record_type = 'F' AND recipe_id = $recipe_id AND user_id = $user_id";
-            $result_favorite = mysqli_query($this->connection, $sql_favorite);
+            // initialise recipe_info
+            $initFavorite = $this->selectRecipeInfoById($recipe_id);
 
-            $determineFavorite = mysqli_fetch_array($result_favorite, MYSQLI_ASSOC);
-            if($determineFavorite) {
-                echo "This recipe has already been added to your favorites!";
-            } elseif (!$determineFavorite) {
-                echo "You can still add this recipe to your favorites";
+            // loop through array to find record_type = 'F'
+            foreach($initFavorite as $key => $value) {
+                if($value['record_type'] === 'F' && $value['recipe_id'] == $recipe_id && $value['user_id'] == $user_id) {
+                    $favoriteArray = [
+                        $value,
+                    ];
+    
+                } else {
+                    $favoriteArray = [];
+                }
+
+                if($favoriteArray == 0) {
+                    echo "The recipe can still be added to your favorites";
+                } else { // maybe add empty array?
+                    echo "This recipe has already been added to your favorites";
+                }
+
+                //return($favoriteArray);
+
+            
             }
-            return($determineFavorite);
+
+
+
+            // $sql_favorite = "SELECT * FROM recipe_info WHERE record_type = 'F' AND recipe_id = $recipe_id AND user_id = $user_id";
+            // $result_favorite = mysqli_query($this->connection, $sql_favorite);
+
+            // $determineFavorite = mysqli_fetch_array($result_favorite, MYSQLI_ASSOC);
+            // if($determineFavorite) {
+            //     echo "This recipe has already been added to your favorites!";
+            // } elseif (!$determineFavorite) {
+            //     echo "You can still add this recipe to your favorites";
+            // }
+            // return($determineFavorite);
 
 
         }
