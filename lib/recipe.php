@@ -23,52 +23,66 @@ class recipe
         $this->ratingStepsRemarks = new recipe_info($connection);
     }
 
-    private function selectUser($user_id)
-    {
+    private function selectUser($user_id) {
         return ($this->user->selectUser($user_id));
     }
 
-    private function selectKitchenType($kitchen_type_id)
-    {
+    private function selectKitchenType($kitchen_type_id) {
         return ($this->kitchen->selectKitchenType($kitchen_type_id));
     }
 
-    private function selectIngredient($recipe_id)
-    {
+    private function selectIngredient($recipe_id) {
         return ($this->ingredient->selectIngredient($recipe_id));
     }
 
-    private function selectArticle($ingredient_id)
-    {
+    private function selectArticle($ingredient_id) {
         return ($this->article->selectArticle($ingredient_id));
     }
 
-    private function selectRecipeInfoById($recipe_id)
-    {
+    private function selectRecipeInfoById($recipe_id) {
         return ($this->ratingStepsRemarks->selectRecipeInfoById($recipe_id));
     }
 
 
+        ///// $recipe_id passed in variables as array?
+        ///// func_get_args()?
 
-    public function selectRecipeById($recipe_id)
-    {
+    public function selectRecipeById($recipe_id) {
+
+        // get list of function arguments from user and put into array
+        $numArgs = func_num_args();
+        $argList = func_get_args();
+        for($i = 0; $i < $numArgs; $i++) {
+        }
+
+        // link argList elements to $recipe_id
+        foreach($argList as $key => $value) {
+            $recipe_id = ($argList);
+        }
+
         // clean data
-        $recipe_id = mysqli_real_escape_string($this->connection, $recipe_id);
+        // $recipe_id = mysqli_real_escape_string($this->connection, $recipe_id);
+        
 
         // sql query
-        $sql = "SELECT * FROM recipe WHERE id in (1,2)";
+        foreach ($recipe_id as $key => $value) {
+        $sql = "SELECT * FROM recipe WHERE id = $value";
         $result = mysqli_query($this->connection, $sql);
-
+        $resultArray[] = $result;
+        }
+        ////// CONTAINS ALL ELEMENTS OF ARRAY
 
         // sql query ingredients
-        $sql_ingredients = "SELECT * FROM ingredients WHERE recipe_id = $recipe_id";
+        $sql_ingredients = "SELECT * FROM ingredients WHERE recipe_id = $value";
         $resuls_ingredients = mysqli_query($this->connection, $sql_ingredients);
 
+        // while loop?
         $recipe = mysqli_fetch_all($result, MYSQLI_ASSOC);
         if (!$result) {
             return NULL;
-        }
-        //return $recipe;
+            }
+
+        // ON LAST ELEMENT OF ARRAY
 
         foreach ($recipe as $key => $value) {
             // get user
@@ -115,8 +129,10 @@ class recipe
                     "article_packaging" => $article['article_packaging'],
                     "article_calories" => $article['article_calories'],
                 ];
+            
             }
-    }
+
+        }
         return ($recipeArray);
     }
 
