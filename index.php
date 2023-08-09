@@ -36,12 +36,12 @@ $data_ingredient = $ingredient->selectIngredient(1); // Select individual ingred
 $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
 // data_addRecipeToFavorites = $addRecipeToFavorites->addRecipeToFavorites(NULL, 4, 1); // recipe_info_id, recipe_id, user_id
 // $data_deleteRecipeFromFavorites = $deleteRecipeFromFavorites->deleteRecipeFromFavorites(4, 1); // recipe_id, user_id
-$data_recipe = $recipe->selectRecipeById(2);
-$data_priceRecipe = $priceRecipe->calcPriceForRecipe(1); // by recipe_id
-$data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_id
-$data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
-$data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
-$data_remarks = $remarks->selectRemarks(1); // by recipe_id
+$data_recipe = $recipe->selectRecipeById(1);
+//$data_priceRecipe = $priceRecipe->calcPriceForRecipe(1); // by recipe_id
+//$data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_id
+// $data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
+// $data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
+// $data_remarks = $remarks->selectRemarks(1); // by recipe_id
 // $data_determineFavorite = $determineFavorite->determineFavorite(2,1); // by recipe_id, user_id
 
 
