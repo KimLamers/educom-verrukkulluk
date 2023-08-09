@@ -8,6 +8,7 @@ class recipe {
     private $type;
     private $ingredient;
     private $article;
+    private $ratingStepsRemarks;
     // determine favorite
 
     public function __construct($connection) {
@@ -176,47 +177,31 @@ class recipe {
 
         public function determineFavorite($recipe_id, $user_id) {
             // check if for recipe_id a user_id already has a record_type = F
-            // 1 if true, 0 if false
 
             // initialise recipe_info
-            $initFavorite = $this->selectRecipeInfoById($recipe_id);
+            $initFavorite = $this->selectRecipeInfoById($recipe_id, $user_id);
 
-            // loop through array to find record_type = 'F'
+            // loop through array to find record_type = 'F' for specified recipe_id and user_id
             foreach($initFavorite as $key => $value) {
-                if($value['record_type'] === 'F' && $value['recipe_id'] == $recipe_id && $value['user_id'] == $user_id) {
-                    $favoriteArray = [
+                if($value['recipe_id'] == $recipe_id && isset($value['user_id']) && $value['user_id'] == $user_id && $value['record_type'] === 'F') {
+                    $favoriteArray[] = [
                         $value,
                     ];
-    
-                } else {
-                    $favoriteArray = [];
                 }
-
-                if($favoriteArray == 0) {
-                    echo "The recipe can still be added to your favorites";
-                } else { // maybe add empty array?
-                    echo "This recipe has already been added to your favorites";
-                }
-
-                //return($favoriteArray);
-
-            
+                // else {
+                //     $favoriteArray = [];
+                // }
             }
+            // determine if specific recipe has already been added to favorites by specific user
+            if(empty($favoriteArray)) {
+                echo "The recipe can still be added to your favorites";
+            } else { // maybe add empty array?
+                echo "This recipe has already been added to your favorites";
 
-
-
-            // $sql_favorite = "SELECT * FROM recipe_info WHERE record_type = 'F' AND recipe_id = $recipe_id AND user_id = $user_id";
-            // $result_favorite = mysqli_query($this->connection, $sql_favorite);
-
-            // $determineFavorite = mysqli_fetch_array($result_favorite, MYSQLI_ASSOC);
-            // if($determineFavorite) {
-            //     echo "This recipe has already been added to your favorites!";
-            // } elseif (!$determineFavorite) {
-            //     echo "You can still add this recipe to your favorites";
-            // }
-            // return($determineFavorite);
-
-
+                // 1-1 works when 1-2 and 2-1 dont exist
+                // 1-1 does not work when 1-2 or 2-1 exists
+                // overwriting issues?
+            }
         }
 
     }

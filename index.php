@@ -42,7 +42,7 @@ $data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_i
 $data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
 $data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
 $data_remarks = $remarks->selectRemarks(1); // by recipe_id
-$data_determineFavorite = $determineFavorite->determineFavorite(1,3); // by recipe_id, user_id
+$data_determineFavorite = $determineFavorite->determineFavorite(2,2); // by recipe_id, user_id
 
 
 /// RETURN
