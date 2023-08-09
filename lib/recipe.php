@@ -67,7 +67,7 @@ class recipe
         if (!$result) {
             return NULL;
         }
-        
+
         // get user
         $user = $this->selectUser($recipe['user_id'], MYSQLI_ASSOC);
         // get kitchen
@@ -204,10 +204,13 @@ class recipe
             }
         }
         // determine if specific recipe has already been added to favorites by specific user
+        // false = not added, true = added
         if (empty($favoriteArray)) {
             echo "The recipe can still be added to your favorites";
-        } else { // maybe add empty array?
+            return false;
+        } else {
             echo "This recipe has already been added to your favorites";
+            return true;
         }
     }
 }
