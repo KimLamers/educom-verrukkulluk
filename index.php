@@ -8,6 +8,7 @@ require_once("lib/kitchen-type.php");
 require_once("lib/ingredient.php");
 require_once("lib/recipe-info.php");
 require_once("lib/recipe.php");
+require_once("lib/shopping-list.php");
 
 
 /// INIT
@@ -26,6 +27,7 @@ $ratingRecipe = new recipe($db->getConnection());
 $stepsRecipe = new recipe($db->getConnection());
 $remarks = new recipe($db->getConnection());
 $determineFavorite = new recipe($db->getConnection());
+$addToShoppingList = new shopping_list($db->getConnection());
 
 
 /// VERWERK 
@@ -42,7 +44,8 @@ $data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_i
 $data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
 $data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
 $data_remarks = $remarks->selectRemarks(1); // by recipe_id
-$data_determineFavorite = $determineFavorite->determineFavorite(1,4); // by recipe_id, user_id
+// $data_determineFavorite = $determineFavorite->determineFavorite(1,4); // by recipe_id, user_id
+$data_addToShoppingList = $addToShoppingList->addToShoppingList(3,1); // by recipe_id, user_id
 
 
 /// RETURN
@@ -51,10 +54,11 @@ $data_determineFavorite = $determineFavorite->determineFavorite(1,4); // by reci
 // echo "<pre>; print_r($data_kitchen_type); echo "</pre>;
 // echo "<pre>; print_r($data_ingredient); echo "</pre>;
 // echo "<pre>"; print_r($data_recipe_info); echo "</pre>";
-echo "<pre>"; print_r($data_recipe); echo "</pre>";
+// echo "<pre>"; print_r($data_recipe); echo "</pre>";
 // echo "<pre>"; print_r($data_priceRecipe); echo "</pre>";
 // echo "<pre>"; print_r($data_caloriesRecipe); echo "</pre>";
 // echo "<pre>"; print_r($data_ratingRecipe); echo "</pre>";
 // echo "<pre>"; print_r($data_stepsRecipe); echo "</pre>";
 // echo "<pre>"; print_r($data_remarks); echo "</pre>";
 // echo "<pre>"; print_r($data_determineFavorite); echo "</pre>";
+echo "<pre>"; print_r($data_addToShoppingList); echo "</pre>";
