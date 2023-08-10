@@ -36,13 +36,13 @@ $data_ingredient = $ingredient->selectIngredient(1); // Select individual ingred
 $data_recipe_info = $recipe_info->selectRecipeInfoById(1);
 // data_addRecipeToFavorites = $addRecipeToFavorites->addRecipeToFavorites(NULL, 4, 1); // recipe_info_id, recipe_id, user_id
 // $data_deleteRecipeFromFavorites = $deleteRecipeFromFavorites->deleteRecipeFromFavorites(4, 1); // recipe_id, user_id
-$data_recipe = $recipe->selectRecipeById(1,2,4);
-//$data_priceRecipe = $priceRecipe->calcPriceForRecipe(1); // by recipe_id
-//$data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_id
-// $data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
-// $data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
-// $data_remarks = $remarks->selectRemarks(1); // by recipe_id
-// $data_determineFavorite = $determineFavorite->determineFavorite(2,1); // by recipe_id, user_id
+$data_recipe = $recipe->selectRecipeById(3,4);
+$data_priceRecipe = $priceRecipe->calcPriceForRecipe(4); // by recipe_id
+$data_caloriesRecipe = $caloriesRecipe->calcCaloriesForRecipe(1); // by recipe_id
+$data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
+$data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
+$data_remarks = $remarks->selectRemarks(1); // by recipe_id
+$data_determineFavorite = $determineFavorite->determineFavorite(1,4); // by recipe_id, user_id
 
 
 /// RETURN
@@ -52,9 +52,9 @@ $data_recipe = $recipe->selectRecipeById(1,2,4);
 // echo "<pre>; print_r($data_ingredient); echo "</pre>;
 // echo "<pre>"; print_r($data_recipe_info); echo "</pre>";
 echo "<pre>"; print_r($data_recipe); echo "</pre>";
-// echo "<pre>"; print_r("The total price for this recipe is " .$data_priceRecipe. " cents."); echo "</pre>";
-// echo "<pre>"; print_r("The total calories for this recipe is " .$data_caloriesRecipe. " calories."); echo "</pre>";
-// echo "<pre>"; print_r("The average rating for recipe is " .$data_ratingRecipe. " stars."); echo "</pre>";
+// echo "<pre>"; print_r($data_priceRecipe); echo "</pre>";
+// echo "<pre>"; print_r($data_caloriesRecipe); echo "</pre>";
+// echo "<pre>"; print_r($data_ratingRecipe); echo "</pre>";
 // echo "<pre>"; print_r($data_stepsRecipe); echo "</pre>";
 // echo "<pre>"; print_r($data_remarks); echo "</pre>";
 // echo "<pre>"; print_r($data_determineFavorite); echo "</pre>";

@@ -44,16 +44,11 @@ class recipe
     }
 
 
-        ///// $recipe_id passed in variables as array?
-        ///// func_get_args()?
-
     public function selectRecipeById($recipe_id) {
 
         // get list of function arguments from user and put into array
-        $numArgs = func_num_args();
         $argList = func_get_args();
-        for($i = 0; $i < $numArgs; $i++) {
-        }
+        
 
         // link argList elements to $recipe_id
         foreach($argList as $key => $value) {
@@ -64,25 +59,23 @@ class recipe
         // $recipe_id = mysqli_real_escape_string($this->connection, $recipe_id);
         
 
-        // sql query
+        // sql query, loop over results
         foreach ($recipe_id as $key => $value) {
         $sql = "SELECT * FROM recipe WHERE id = $value";
         $result = mysqli_query($this->connection, $sql);
         $resultArray[] = $result;
-        }
-        ////// CONTAINS ALL ELEMENTS OF ARRAY
+        
 
         // sql query ingredients
         $sql_ingredients = "SELECT * FROM ingredients WHERE recipe_id = $value";
         $resuls_ingredients = mysqli_query($this->connection, $sql_ingredients);
 
-        // while loop?
+        
         $recipe = mysqli_fetch_all($result, MYSQLI_ASSOC);
         if (!$result) {
             return NULL;
-            }
+            } 
 
-        // ON LAST ELEMENT OF ARRAY
 
         foreach ($recipe as $key => $value) {
             // get user
@@ -133,21 +126,22 @@ class recipe
             }
 
         }
+    }
+    
+    
         return ($recipeArray);
     }
 
-    public function calcPriceForRecipe($recipe_id)
-    {
+    public function calcPriceForRecipe($recipe_id) {
         // get recipeArray from selectRecipeById
-        $recipeArray = $this->selectRecipeById($recipe_id, MYSQLI_ASSOC);
+        $recipeArray = $this->selectRecipeById($recipe_id);
         $recipePrice = array_sum(array_column($recipeArray, 'article_price'));
         return ($recipePrice);
     }
 
-    public function calcCaloriesForRecipe($recipe_id)
-    {
+    public function calcCaloriesForRecipe($recipe_id) {
         // get recipeArray from selectRecipeById
-        $recipeArray = $this->selectRecipeById($recipe_id, MYSQLI_ASSOC);
+        $recipeArray = $this->selectRecipeById($recipe_id);
         $recipeCalories = array_sum(array_column($recipeArray, 'article_calories'));
         return ($recipeCalories);
     }
@@ -226,10 +220,10 @@ class recipe
         // false = not added, true = added
         if (empty($favoriteArray)) {
             echo "The recipe can still be added to your favorites";
-            return false;
+            return FALSE;
         } else {
             echo "This recipe has already been added to your favorites";
-            return true;
+            return TRUE;
         }
     }
 }
