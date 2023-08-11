@@ -45,7 +45,7 @@ $data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
 $data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
 $data_remarks = $remarks->selectRemarks(1); // by recipe_id
 // $data_determineFavorite = $determineFavorite->determineFavorite(1,4); // by recipe_id, user_id
-$data_addToShoppingList = $addToShoppingList->addToShoppingList(3,1); // by recipe_id, user_id
+$data_addToShoppingList = $addToShoppingList->addToShoppingList(3,3); // by recipe_id, user_id
 
 
 /// RETURN
