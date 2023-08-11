@@ -4,21 +4,15 @@ class shopping_list {
 
     private $connection;
     private $ingredient;
-    private $article;
 
     
     public function __construct($connection) {
         $this->connection = $connection;
         $this->ingredient = new ingredient($connection);
-        $this->article = new article($connection);
     }
 
     private function selectIngredient($recipe_id) {
         return ($this->ingredient->selectIngredient($recipe_id));
-    }
-
-    private function selectArticle($article_id) {
-        return ($this->article->selectArticle($article_id));
     }
 
 
@@ -61,27 +55,36 @@ class shopping_list {
         $article_id = mysqli_real_escape_string($this->connection, $article_id);
         $user_id = mysqli_real_escape_string($this->connection, $user_id);
 
+
         // retrieve all articles on shopping_list for specific user_id
         $sql = "SELECT * FROM shopping_list WHERE user_id = $user_id";
         $result = mysqli_query($this->connection, $sql);
         $shoppingList = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+        // sql query check shopping_list for specific article_id & user_id combination
+        $sql_articleCheck = "SELECT * FROM shopping_list WHERE article_id = $article_id AND user_id = $user_id";
+        $result_articleCheck = mysqli_query($this->connection, $sql_articleCheck);
+        $articleCheck = mysqli_fetch_all($result_articleCheck, MYSQLI_ASSOC);
+
+
         // check if given article_id is already on shopping_list of given user_id
-        foreach($shoppingList as $key => $value) {
+        if($articleCheck) {
+        foreach($articleCheck as $key => $value) {
             // if article_id already on shopping_list for user_id
             if($value['article_id'] == $article_id && $value['user_id'] == $user_id) {
                 // return shopping_list
                 return $shoppingList;
-            } else { // if article_id is not yet on shopping_list for user_id
-                // return FALSE
-                echo "article is not yet on shopping list";
-                return FALSE;
+            }
+        }} elseif (!$articleCheck) { // if article_id is not on shopping_list yet for user_id
+            // return false
+            echo "article is not yet on shopping list";
+                //return FALSE;
             }
         }
         
 
     }
-}
+
 
 
 ?>
