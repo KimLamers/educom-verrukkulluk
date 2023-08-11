@@ -28,6 +28,7 @@ $stepsRecipe = new recipe($db->getConnection());
 $remarks = new recipe($db->getConnection());
 $determineFavorite = new recipe($db->getConnection());
 $addToShoppingList = new shopping_list($db->getConnection());
+$articleOnList = new shopping_list($db->getConnection());
 
 
 /// VERWERK 
@@ -45,7 +46,9 @@ $data_ratingRecipe = $ratingRecipe->selectRating(1); // by recipe_id
 $data_stepsRecipe = $stepsRecipe->selectSteps(1); // by recipe_id
 $data_remarks = $remarks->selectRemarks(1); // by recipe_id
 // $data_determineFavorite = $determineFavorite->determineFavorite(1,4); // by recipe_id, user_id
-$data_addToShoppingList = $addToShoppingList->addToShoppingList(3,3); // by recipe_id, user_id
+// $data_addToShoppingList = $addToShoppingList->addToShoppingList(3,3); // by recipe_id, user_id
+$data_articleOnList = $articleOnList->articleOnList(2,1); // by article_id, user_id
+
 
 
 /// RETURN
@@ -61,4 +64,5 @@ $data_addToShoppingList = $addToShoppingList->addToShoppingList(3,3); // by reci
 // echo "<pre>"; print_r($data_stepsRecipe); echo "</pre>";
 // echo "<pre>"; print_r($data_remarks); echo "</pre>";
 // echo "<pre>"; print_r($data_determineFavorite); echo "</pre>";
-echo "<pre>"; print_r($data_addToShoppingList); echo "</pre>";
+//echo "<pre>"; print_r($data_addToShoppingList); echo "</pre>";
+echo "<pre>"; print_r($data_articleOnList); echo "<pre>";
