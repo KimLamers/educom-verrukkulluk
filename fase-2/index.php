@@ -1,9 +1,9 @@
 <?php
 //// Allereerst zorgen dat de "Autoloader" uit vendor opgenomen wordt:
-require_once("./vendor/autoload.php");
+require_once("/Users/Kimmie/Projecten/Software/vendor/autoload.php");
 
 /// Twig koppelen:
-$loader = new \Twig\Loader\FilesystemLoader("./templates");
+$loader = new \Twig\Loader\FilesystemLoader("/Users/Kimmie/Projecten/educom-verrukkulluk/templates");
 /// VOOR PRODUCTIE:
 /// $twig = new \Twig\Environment($loader), ["cache" => "./cache/cc"]);
 
@@ -14,9 +14,12 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 /******************************/
 
 /// Next step, iets met je data doen. Ophalen of zo
-require_once("lib/gerecht.php");
-$gerecht = new gerecht();
-$data = $gerecht->selecteerGerecht();
+require_once("lib/database.php");
+require_once("lib/recipe.php");
+$db = new database();
+$recipe = new recipe($db->getConnection());
+$data = $recipe->selectRecipeById(1);
+echo "test";
 
 
 /*
@@ -24,7 +27,7 @@ URL:
 http://localhost/index.php?gerecht_id=4&action=detail
 */
 
-$gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
+$recipe_id = isset($_GET["id"]) ? $_GET["id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 
 

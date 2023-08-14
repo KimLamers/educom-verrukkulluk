@@ -17,10 +17,12 @@
 <body>
 <div class="container-fluid">
 
-    <div class="row">
+    <div class="row"> 
         <div class="col-md-12">
+
+
         {% block header %}
-            
+        <div class="header_image_background"></div>
         {% endblock %}   
         </div>
     </div>
@@ -40,14 +42,22 @@
         </div>
     </div>
 
+<style>
+.darker-orange {
+    background-color: #eb8d1f;
+}
+</style>
 
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Footer</h1>
-        </div>
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 darker-orange"><img src="assets/img/verrukkulluk-pay-off.png" class="mx-auto d-block" style="width:40%" style="hight:40%"></div>
+            <div class="col-md-9 darker-orange">
+                <div class="row">
+                    <div class="col-md-12"><img src="assets/img/verrukkulluk-contact.png" style="width:15%" style="height:15%"</div>
+                <div class="row">
+                    <div class="col-md-12">Verrukkelluk.nl<br> Poststraat 2b <br> Sittard <br> info@verrukkelluk.nl</div>
+                
 
-
-</div>
+                
 
 </body>

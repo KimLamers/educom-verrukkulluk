@@ -1,5 +1,13 @@
 <?php
 
+require_once("lib/user.php");
+require_once("lib/kitchen-type.php");
+require_once("lib/ingredient.php");
+require_once("lib/recipe-info.php");
+require_once("lib/article.php");
+
+
+
 class recipe
 {
 
