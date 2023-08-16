@@ -5,6 +5,61 @@
 {% endblock %}
 
 {% block content %}
+
+        <style>
+        .red {
+            background-color: red;
+            height: 700px;
+        }
+
+        .yellow {
+            background-color: yellow;
+            height: 700px;
+        }
+
+        .green {
+            background-color: green;
+            height: 700px;
+        }
+
+        .blue {
+            background-color: blue;
+            height: 700px;
+        }
+
+        .purple {
+            background-color: purple;
+            height: 900px;
+        }
+
+        .orange {
+            background-color: orange;
+            height: 500px;
+        }
+        </style>
+
+<div class="hero-image-holder">
+    <img class="hero-image__image" src="assets/img/hamburger-header.jpg"/>
+</div>
+
+<div class="containter-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12 purple">AGENDA</div>
+                <div class="col-md-12 orange">LOGIN</div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12 yellow">RECIPE</div>
+        </div>
+            <div class="row">
+                <div class="col-md-12 red">TABLE</div>
+</div>
+            
+
+{#
 <pre>
-{{ dump(data) }}
+{{ dump(data) }} #}
 {% endblock %}

@@ -2,12 +2,43 @@
 {% extends "main.html.twig" %}
 
 {% block header %}
-<img src="assets/img/logo-v2.png"/>
 {% endblock %}
 
 
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
+
+<div class="hero-image-holder">
+    <img class="hero-image__image" src="assets/img/nutrition-header.jpg"/>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12 purple">AGENDA</div>
+                <div class="col-md-12 orange">LOGIN</div>
+            <h2>Agenda</h2>
+            <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
+            <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a></div>
+
+
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-6 yellow">RECIPE 1</div>
+                <div class="col-md-6 green">RECIPE 2</div>
+                </div>
+            <div class="row">
+                <div class="col-md-6 red">RECIPE 3</div>
+                <div class="col-md-6 blue">RECIPE 4</div>
+                </div>
+        </div>
+
+
+
+
     {# Dit is commentaar #}
 
     {# Print #}
@@ -40,9 +71,9 @@
         </li>
     {% endfor %}
     <ul>
-     {# Dump #}
+     {# Dump
        <pre>
         {{ dump(data) }}
-       </pre>
+       </pre> #}
 
 {% endblock %}

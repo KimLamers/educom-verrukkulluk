@@ -12,52 +12,84 @@
 
     <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+</head>
 
-</html>
 <body>
-<div class="container-fluid">
+    <header class="header">
+        <img src="assets/img/logo-v2.png" class="header__logo"/>
 
-    <div class="row"> 
-        <div class="col-md-12">
-
-
-        {% block header %}
-        <div class="header_image_background"></div>
-        {% endblock %}   
+        <div class="header__search-holder">
+            <input class="header__search-input" placeholder="Zoeken"/>
+            <span class="header__search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+            </span>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-3">
-            <h2>Agenda</h2>
-            <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
-            <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a>
-
-
+        <div class="header__menu-trigger-holder">
+            <span class="header__menu-trigger-line header__menu-trigger-line--top">
+            </span>
+            <span class="header__menu-trigger-line header__menu-trigger-line--middle">
+            </span>
+            <span class="header__menu-trigger-line header__menu-trigger-line--bottom">
+            </span>
         </div>
-        <div class="col-md-9">
-            <h2>Content</h2>
-            {%  block content %}
-            {%  endblock %}
-        </div>
-    </div>
 
-<style>
-.darker-orange {
-    background-color: #eb8d1f;
-}
-</style>
+        <div class="header__menu-holder">
+            <a class="header__menu-logo-holder" href="/">
+                <img class="header__menu-logo" src="assets/img/logo-v2.png"/>
+            </a>
+            <nav class="header__menu-navigation-holder">
+                <ul class="header__menu-navigation-list">
+                    <li class="header__menu-navigation-item">
+                        <a class="pretty-lily   header__menu-navigation-link" href="#">
+                            Mijn Favorieten
+                        </a>
+                    </li>
+                    <li class="header__menu-navigation-item">
+                        <a class="pretty-lily header__menu-navigation-link" href="#">
+                            Mijn Boodschappenlijst
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    
+    </header>
+    
+    
+
+            {# {% block header %}
+            {% endblock %}    #}
+
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 darker-orange"><img src="assets/img/verrukkulluk-pay-off.png" class="mx-auto d-block" style="width:40%" style="hight:40%"></div>
-            <div class="col-md-9 darker-orange">
-                <div class="row">
-                    <div class="col-md-12"><img src="assets/img/verrukkulluk-contact.png" style="width:15%" style="height:15%"</div>
-                <div class="row">
-                    <div class="col-md-12">Verrukkelluk.nl<br> Poststraat 2b <br> Sittard <br> info@verrukkelluk.nl</div>
-                
+        {%  block content %}
+        {%  endblock %}
+    </div>
 
-                
+
+    {# footer #}
+    <div class="container-fluid darker-orange">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="assets/img/verrukkulluk-pay-off.png" class="mx-auto d-block" style="width:40%" style="height:40%">
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="assets/img/verrukkulluk-contact.png" style="width:15%" style="height:15%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer__text-color">Verrukkelluk.nl<br> Poststraat 2b <br> Sittard <br> info@verrukkelluk.nl
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js" type="text/javascript"></script>
 
 </body>

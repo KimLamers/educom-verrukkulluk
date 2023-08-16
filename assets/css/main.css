@@ -30,7 +30,7 @@
 }
 
 /** HEADING **/
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .pretty-lily {
     font-family: var(--heading) !important;
 }
 
@@ -46,22 +46,196 @@ h3, h4, h5 {
     font-size: 32px;
 }
 
-/** HTML / HEADER **/
-
-.header_background_image {
-    background: url("assets/img/nutrition-header.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: inline-block;
-
-
+/** GRID COLOURS **/
+.red {
+    background-color: red;
+    height: 700px;
 }
 
+.yellow {
+    background-color: yellow;
+            height: 700px;
+        }
 
+.green {
+    background-color: green;
+    height: 700px;
+}
+
+.blue {
+    background-color: blue;
+    height: 700px;
+}
+
+.purple {
+    background-color: purple;
+    height: 900px;
+}
+
+.orange {
+    background-color: orange;
+    height: 500px;
+}
+
+.darker-orange {
+    background-color: var(--darker-orange);
+}
 
 /** HTML / BODY **/
 html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
 }
+
+/** HTML / HEADER **/
+.header {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 30px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.header__logo {
+    height: auto;
+    width: 400px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.header__search-holder {
+    position: relative;
+    height: auto;
+    align-self: flex-start;
+    margin-top: 25px;
+    margin-left: auto;
+}
+
+.header__search-input {
+    width: 250px;
+    height: 35px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 0px 40px;
+}
+
+.header__search-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 10px;
+}
+
+.header__search-icon svg {
+    height: auto;
+    width: 20px;
+}
+
+.header__menu-trigger-holder {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.header__menu-trigger-line {
+    height: 4px;
+    width: 40px;
+    background-color: var(--darker-orange);
+    border-radius: 4px;
+}
+
+.header__menu-trigger-line--middle {
+    margin: 10px 0px;
+}
+
+.header__menu-holder {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    align-items: center;
+    border: 1px solid black;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    padding: 0px 50px;
+    transform: translateY(-100%);
+    transition: transform 300ms ease-out;
+}
+
+.header__menu-logo {
+    height: auto;
+    width: 200px;
+    cursor: pointer;
+}
+
+.header__menu-navigation-holder {
+    margin-left: 200px;
+    width: 100%;
+}
+
+.header__menu-navigation-list {
+    display: flex;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    
+}
+
+.header__menu-navigation-link {
+    color: black;
+    text-decoration: none;
+    font-size: 40px;
+    color: var(--lighter-red);
+}
+
+.header__menu-navigation-link:hover {
+    color: var(--darker-red);
+}
+
+
+/** HERO IMAGE **/
+.hero-image-holder {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    max-height: 800px;
+    margin-bottom: 50px;
+}
+
+.hero-image__image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+/** FOOTER **/
+.footer__text-color {
+    color: var(--white);
+}
+
+
+
