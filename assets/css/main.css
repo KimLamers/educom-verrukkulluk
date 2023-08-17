@@ -146,6 +146,8 @@ html, body {
     margin-top: 30px;
     margin-left: 30px;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 .header__menu-trigger-line {
@@ -177,6 +179,10 @@ html, body {
     transition: transform 300ms ease-out;
 }
 
+.header__menu-holder--is-open {
+    transform: translateY(0);
+}
+
 .header__menu-logo {
     height: auto;
     width: 200px;
@@ -184,8 +190,10 @@ html, body {
 }
 
 .header__menu-navigation-holder {
-    margin-left: 200px;
-    width: 100%;
+    margin-left: auto;
+    margin-right: 60px;
+    width: 46.875vw;
+    max-width: 675px;
 }
 
 .header__menu-navigation-list {
@@ -194,7 +202,7 @@ html, body {
     margin: 0px;
     padding: 0px;
     list-style: none;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     
