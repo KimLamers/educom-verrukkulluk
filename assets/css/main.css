@@ -148,6 +148,7 @@ html, body {
 .header__search-icon svg {
     height: auto;
     width: 20px;
+    fill: var(--black);
 }
 
 .header__menu-trigger-holder {
@@ -301,6 +302,7 @@ html, body {
     width: 100%;
     height: 100px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .content__container-agenda-content--icon {
