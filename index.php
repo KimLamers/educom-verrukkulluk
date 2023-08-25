@@ -27,6 +27,16 @@ http://localhost/index.php?recipe_id=4&action=detail
 */
 
 $recipe_id = isset($_GET["id"]) ? $_GET["id"] : "";
+$kitchen_id = isset($_GET["kitchen_id"]) ? $_GET["kitchen_id"] : "";
+$type_id = isset($_GET["type_id"]) ? $_GET["type_id"] : "";
+$user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : "";
+$date_added = isset($_GET["date_added"]) ? $_GET["date_added"] : "";
+$recipe_title = isset($_GET["recipe_title"]) ? $_GET["recipe_title"] : "";
+$recipe_description_short = isset($_GET["recipe_description_short"]) ? $_GET["recipe_description_short"] : "";
+$recipe_description_long = isset($_GET["recipe_description_long"]) ? $_GET["recipe_description_long"] : "";
+$recipe_image = isset($_GET["recipe_image"]) ? $_GET["recipe_image"] : "";
+
+
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 
 
