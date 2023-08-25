@@ -28,6 +28,9 @@
     --black: #000;
 }
 
+
+
+
 /** HEADING **/
 h1, h2, h3, h4, h5, h6, .pretty-lily {
     font-family: var(--heading) !important;
@@ -50,11 +53,17 @@ h3, h4, h5 {
     max-width: 1296px;
 }
 
+
+
+
 /** HTML / BODY **/
 html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
 }
+
+
+
 
 /** HTML / HEADER **/
 .header {
@@ -189,6 +198,9 @@ html, body {
 }
 
 
+
+
+
 /** HERO IMAGE **/
 .hero-image-holder {
     position: relative;
@@ -208,7 +220,10 @@ html, body {
     height: 100%;
 }
 
-/** CONTENT **/
+
+
+
+/** CONTENT SPACING **/
 .content__container-spacing {
     padding: 0px 60px;
 }
@@ -220,6 +235,9 @@ html, body {
 .content__row-spacing--margin-top {
     margin-top: 25px;
 }
+
+
+
 
 
 /** AGENDA **/
@@ -293,6 +311,9 @@ html, body {
 }
 
 
+
+
+
 /** LOGIN **/
 .content__container-login-holder {
     background-color: var(--darker-red);
@@ -362,6 +383,9 @@ html, body {
     width: 100%;
     transform: translateX(33%);
 }
+
+
+
 
 /** HOMEPAGE RECIPES **/
 .content__recipe-block {
@@ -491,6 +515,9 @@ html, body {
     fill: var(--lighter-red);
     top: 60%;
 }
+
+
+
 
 /** DETAIL RECIPE **/
 .recipe__container {
@@ -666,11 +693,12 @@ html, body {
 .content__container-recipe-detail-info-bottom-holder {
     display: flex;
     position: relative;
+    margin-top: 65px;
 }
 
 .content__container-recipe-detail-info-bottom--leftbutton {
-    height: 50px;
-    width: 180px;
+    height: 40px;
+    width: 150px;
     border: 0px solid;
     border-radius: 30px;
     background-color: var(--lighter-red);
@@ -678,7 +706,7 @@ html, body {
 }
 
 .content__container-recipe-detail-info-bottom-leftbutton--text {
-    font-size: 46px;
+    font-size: 37px;
     color: var(--white);
     text-align: center; 
     margin-top: -10px;
@@ -690,16 +718,15 @@ html, body {
 
 .content__container-recipe-detail-info-bottom--favorite svg {
     position: relative;
-    width: 45px;
+    width: 40px;
     height: auto;
     fill: var(--darker-red);
 }
 
+
+
+
 /** CONTENT RECIPE DETAIL TABLE **/
-.recipe__tab-content-holder {
-
-}
-
 .table__content-holder {
     display: flex;
     flex-direction: row;
@@ -719,6 +746,10 @@ html, body {
     display: block;
 }
 
+
+
+
+/** TABLE INGREDIENTS **/
 .table__content-image {
     position: relative;
     align-self: center;
@@ -727,7 +758,7 @@ html, body {
 }
 
 .table__content-image img {
-    width: 150px;
+    width: 130px;
     height: auto;
 }
 
@@ -742,10 +773,6 @@ html, body {
     font-size: 32px;
 }
 
-.table__content-text-description {
-
-}
-
 .table__content-bottom-holder {
     display: flex;
     align-items: center;
@@ -757,19 +784,88 @@ html, body {
     margin-right: 20px;
 }
 
-.table__cotent-bottom-amount {
-    font-size: 24px;
+.table__content-bottom-amount {
+    font-size: 13px;
 }
 
+
+
+
+/** TABLE RECIPE **/
+.table__content-recipe-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.table__content-recipe-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.table__content-step--background-image {
+    height: 100px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: var(--lighter-orange);
+    margin: 20px;
+    max-width: 97px;
+}
+
+.table__content-step-background-number {
+    font-size: 48px;
+    color: var(--white);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.table__content-step--description {
+    align-self: center;
+}
+
+
+
+/** TABLE COMMENTS **/
+.table__content-comment-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.table__content-comment-content-holder {
+    display: flex;
+    margin: 15px;
+}
+
+.table__content-comment-profile-picture {
+    height: 100px;
+    width: 100px;
+    border: 5px solid var(--darker-orange);
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.table__content-comment-text-holder {
+    margin-left: 15px;
+}
+
+.table__content-comment-profile-name {
+    font-size: 32;
+    color: var(--darker-green);
+    margin-top: 20px;
+}
+
+
+/** SCROLL **/
 .table__scroll {
     text-align: center;
 }
 
 .table__scroll svg {
-    width: 100px;
+    width: 30px;
     height: auto;
     fill: var(--darker-green)
 }
+
+
 
 /** FOOTER **/
 .footer__text-color {
