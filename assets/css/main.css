@@ -432,11 +432,12 @@ html, body {
 }
 
 .content__container-recipe-content-top--title {
-    font-size: 48px;
+    font-size: 3vmax;
     color: var(--darker-green);
     margin-left: 30px;
     margin-right: 20px;
     width: 50%;
+    height: 120px;
 }
 
 .content__container-recipe-content-top--rating svg {
@@ -461,7 +462,7 @@ html, body {
     flex-direction: row;
     position: absolute;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 20px;
     margin-left: 15px;
     padding: 10px;
 }
@@ -644,12 +645,13 @@ html, body {
 .content__container-recipe-detail-info-top-holder {
     display: flex;
     width: 100%;
+    height: 100px;
     align-items: center;
 }
 
 .content__container-recipe-detail-info-top--title {
     color: var(--darker-green);
-    font-size: 48px;
+    font-size: 3vmax;
     line-height: 1;
 }
 
