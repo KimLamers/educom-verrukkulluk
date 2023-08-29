@@ -49,15 +49,46 @@ switch($action) {
             break;
         }
 
-        case "detail": {
+        case "burger_detail": {
             $data = $recipe->selectRecipeById(1); // recipe_id
             $ingredient_data = $ingredient->selectIngredient(1); // recipe_id
             $comments_data = $comments->selectComments(1); // recipe_id
             $preparation_data = $preparation->selectPreparation(1); // recipe_id
+            $template = 'burger_detail.html.twig';
+            $title = "Vegan burger";
+            break;
+        }
+
+        case "detail": {
+            $data = $recipe->selectRecipeById(4); // recipe_id
+            $ingredient_data = $ingredient->selectIngredient(4); // recipe_id
+            $comments_data = $comments->selectComments(4); // recipe_id
+            $preparation_data = $preparation->selectPreparation(4); // recipe_id
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;
         }
+
+        // case "detail": {
+        //     $data = $recipe->selectRecipeById(4); // recipe_id
+        //     $ingredient_data = $ingredient->selectIngredient(4); // recipe_id
+        //     $comments_data = $comments->selectComments(4); // recipe_id
+        //     $preparation_data = $preparation->selectPreparation(4); // recipe_id
+        //     $template = 'detail.html.twig';
+        //     $title = "detail pagina";
+        //     break;
+        // }
+
+        // case "detail": {
+        //     $data = $recipe->selectRecipeById(4); // recipe_id
+        //     $ingredient_data = $ingredient->selectIngredient(4); // recipe_id
+        //     $comments_data = $comments->selectComments(4); // recipe_id
+        //     $preparation_data = $preparation->selectPreparation(4); // recipe_id
+        //     $template = 'detail.html.twig';
+        //     $title = "detail pagina";
+        //     break;
+        // }
+
 
         // case "shoppinglist": {
         //     $data = $recipe->selectRecipeById(1); // recipe_id

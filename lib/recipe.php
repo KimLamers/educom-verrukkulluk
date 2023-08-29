@@ -91,11 +91,10 @@ class recipe
                 "record_type_type" => $type['record_type'],
                 "description_type" => $type['description'],
                 "ingredients" => $ingredients,
+                "recipe_price" => array_sum(array_column($ingredients, 'article_price')),
+                "recipe_calories" => array_sum(array_column($ingredients, 'article_calories')),
             ];
-
         }
-        
-        //echo '<pre>'; print_r($recipeArray); echo '</pre>';
         return ($recipeArray);
     }
 

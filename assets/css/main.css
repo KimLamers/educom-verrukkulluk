@@ -754,6 +754,7 @@ html, body {
 .table__content-holder {
     display: flex;
     flex-direction: row;
+    margin-bottom: 35px;
 }
 
 .tablinks {
