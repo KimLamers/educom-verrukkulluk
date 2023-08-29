@@ -816,17 +816,16 @@ html, body {
 
 
 /** TABLE RECIPE **/
-.table__content-recipe-holder {
+.table__content-holder--column {
     display: flex;
     flex-direction: column;
 }
 
-.table__content-recipe-content {
+.table__content-info-holder {
     display: flex;
-    flex-direction: row;
 }
 
-.table__content-step--background-image {
+.table__content-step--background {
     height: 100px;
     width: 120px;
     border-radius: 50%;
@@ -835,7 +834,7 @@ html, body {
     max-width: 97px;
 }
 
-.table__content-step-background-number {
+.table__content-step--number {
     font-size: 48px;
     color: var(--white);
     text-align: center;

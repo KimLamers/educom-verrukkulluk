@@ -23,7 +23,6 @@ class recipe_info {
         $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id";
         $result = mysqli_query($this->connection, $sql);
         
-        // $recipe_info = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $recipeInfoArray = [];
     
 
@@ -85,9 +84,53 @@ class recipe_info {
         return($recipeInfoArray);
     }
 
-    // public function add record_type F to recipe_info for user. Need user_id, recipe_id and record_type.
-    // to add to database: INSERT  (INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value)
+    public function selectComments($recipe_id) {
 
+        $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'O'";
+        $result = mysqli_query($this->connection, $sql);
+        
+        $recipeInfoCommentArray = [];
+
+        while($recipe_info = mysqli_fetch_array($result)) {
+            $user = $this->selectUser($recipe_info['user_id']);
+
+            $recipeInfoCommentArray[] = [
+                "id" => $recipe_info['id'],
+                "record_type" => $recipe_info['record_type'],
+                "recipe_id" => $recipe_info['recipe_id'],
+                "user_id" => $recipe_info['user_id'],
+                "date" => $recipe_info['date'],
+                "number_field" => $recipe_info['number_field'],
+                "text_field" => $recipe_info['text_field'],
+                "username" => $user['username'],
+                "password" => $user['password'],
+                "email" => $user['email'],
+                "user_image"=> $user['user_image'],
+            ];
+        }
+        return($recipeInfoCommentArray);
+    }
+
+    public function selectPreparation($recipe_id) {
+
+        $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'B'";
+        $result = mysqli_query($this->connection, $sql);
+        
+        $recipeInfoPreparationArray = [];
+
+        while($recipe_info = mysqli_fetch_array($result)) {
+
+            $recipeInfoPreparationArray[] = [
+                "id" => $recipe_info['id'],
+                "record_type" => $recipe_info['record_type'],
+                "recipe_id" => $recipe_info['recipe_id'],
+                "date" => $recipe_info['date'],
+                "number_field" => $recipe_info['number_field'],
+                "text_field" => $recipe_info['text_field'],
+            ];
+        }
+        return($recipeInfoPreparationArray);
+    }
 
     public function addRecipeToFavorites($recipe_info_id, $recipe_id, $user_id) {
         // check if record already exists
@@ -108,9 +151,6 @@ class recipe_info {
         }
 
     }
-
-    // public function to delete record_type F for user. Need user_id, recipe_id and record_type.
-    // to delete from database: DELETE (DELETE FROM tabele_name WHERE some_column = some_value)
 
 
     public function deleteRecipeFromFavorites($recipe_id, $user_id) {

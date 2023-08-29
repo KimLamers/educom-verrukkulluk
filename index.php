@@ -17,11 +17,18 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 require_once("lib/database.php");
 require_once("lib/recipe.php");
 require_once("lib/ingredient.php");
+require_once("lib/recipe-info.php");
+
 $db = new database();
 $recipe = new recipe($db->getConnection());
 $ingredient = new ingredient($db->getConnection());
+$comments = new recipe_info($db->getConnection());
+$preparation = new recipe_info($db->getConnection());
+
 $data = $recipe->selectRecipeById();
 $ingredient_data = $ingredient->selectIngredient(1);
+$comments_data = $comments->selectComments(1);
+$preparation_data = $preparation->selectPreparation(1);
 
 
 /*
@@ -45,6 +52,8 @@ switch($action) {
         case "detail": {
             $data = $recipe->selectRecipeById(1); // recipe_id
             $ingredient_data = $ingredient->selectIngredient(1); // recipe_id
+            $comments_data = $comments->selectComments(1); // recipe_id
+            $preparation_data = $preparation->selectPreparation(1); // recipe_id
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;
@@ -96,4 +105,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data]);
+echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data]);

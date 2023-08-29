@@ -99,6 +99,7 @@ class recipe
         return ($recipeArray);
     }
 
+    /// PUT THESE IN SELECT RECIPE FUNCTION
     public function calcPriceForRecipe($recipe_id) {
         // get recipeArray from selectRecipeById
         $recipeArray = $this->selectRecipeById($recipe_id);
