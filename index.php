@@ -59,12 +59,12 @@ switch($action) {
             break;
         }
 
-        // case "shoppinglist": {
-        //     $data = $recipe->selectRecipeById(1); // recipe_id
-        //     $template = 'shoppinglist.html.twig';
-        //     $title = "shopping list";
-        //     break;
-        // }
+        case "shoppinglist": {
+            $data = $recipe->selectRecipeById(); // recipe_id
+            $template = 'shoppinglist.html.twig';
+            $title = "shopping list";
+            break;
+        }
 
         // case "add_rating": {
         //     $data = $rating->selectRating(1); // recipe_id
