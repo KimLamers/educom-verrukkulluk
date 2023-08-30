@@ -29,3 +29,6 @@ function openTab(event, tabName) {
 
 }
 
+/* LINKING TO DETAIL PAGE */
+
+

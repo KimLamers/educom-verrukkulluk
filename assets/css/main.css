@@ -432,7 +432,7 @@ html, body {
 }
 
 .content__container-recipe-content-top--title {
-    font-size: 3vmax;
+    font-size: 42px;
     color: var(--darker-green);
     margin-left: 30px;
     margin-right: 20px;
@@ -476,6 +476,7 @@ html, body {
     margin-top: 50px;
     margin-right: 30px;
     cursor: pointer;
+    text-decoration-line: none;
 }
 
 .content__container-recipe-content-button--text {
