@@ -7,6 +7,7 @@ $('.header__menu-trigger-holder').click(() => {
 
 });
 
+
 /* RECIPE DETAIL TABLE */
 let previousTab = document.querySelector('[data-tab]');
 let previousButton = document.querySelector('.tablinks');
@@ -29,6 +30,27 @@ function openTab(event, tabName) {
 
 }
 
-/* LINKING TO DETAIL PAGE */
+
+/* RATING SYSTEM */
+$(".content__container-recipe-detail-info-top--rating svg").click(function () {
+    const value = $(this).attr('data-value');
+
+    $(".content__container-recipe-detail-info-top--rating svg").removeClass('content__container-recipe-detail-info-top--rating-filled')
 
 
+    $.ajax ({
+        url: "https://api.dev-master.ninja/js/rating",
+        method: "POST",
+        data: { rating: value },
+        success: function(result){
+
+            $('.content__container-recipe-detail-info-top--rating svg').each( (index, elem) => {
+                const itemValue = $(elem).attr('data-value');
+                if(itemValue <= value) {
+                    $(elem).addClass('content__container-recipe-detail-info-top--rating-filled');
+                }
+            })
+            console.log(`Value: ${ value }`);
+        }
+    })
+})

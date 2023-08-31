@@ -24,11 +24,13 @@ $recipe = new recipe($db->getConnection());
 $ingredient = new ingredient($db->getConnection());
 $comments = new recipe_info($db->getConnection());
 $preparation = new recipe_info($db->getConnection());
+$rating = new recipe_info($db->getConnection());
 
 $data = $recipe->selectRecipeById();
 $ingredient_data = $ingredient->selectIngredient(1);
 $comments_data = $comments->selectComments(1);
 $preparation_data = $preparation->selectPreparation(1);
+$rating_data = $rating->selectAverageRating(1);
 
 
 /*
@@ -54,6 +56,7 @@ switch($action) {
             $ingredient_data = $ingredient->selectIngredient($recipe_id);
             $comments_data = $comments->selectComments($recipe_id);
             $preparation_data = $preparation->selectPreparation($recipe_id);
+            $rating_data = $rating->selectAverageRating($recipe_id);
             $template = 'detail.html.twig';
             $title = "Detail pagina";
             break;
@@ -98,4 +101,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data]);
+echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "rating_data" => $rating_data]);

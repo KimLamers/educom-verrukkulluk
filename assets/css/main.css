@@ -652,7 +652,7 @@ html, body {
 
 .content__container-recipe-detail-info-top--title {
     color: var(--darker-green);
-    font-size: 3vmax;
+    font-size: 42px;
     line-height: 1;
 }
 
@@ -664,11 +664,20 @@ html, body {
 
 .content__container-recipe-detail-info-top--rating svg {
     position: relative;
-    margin: 0px 1px;
-    fill: var(--lighter-orange);
     width: 25px;
     height: auto;
+    margin: 0px 1px;
     align-self: flex-end;
+    fill: rgb(247, 211, 196);
+    cursor: pointer;
+}
+
+.content__container-recipe-detail-info-top--rating svg:hover {
+    fill: var(--darker-orange);
+}
+
+.content__container-recipe-detail-info-top--rating-filled {
+    fill: var(--lighter-orange) !important;
 }
 
 .content__container-recipe-detail-info-middle-holder {

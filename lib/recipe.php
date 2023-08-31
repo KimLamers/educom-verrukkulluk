@@ -113,23 +113,6 @@ class recipe
         return ($recipeCalories);
     }
 
-    public function selectRating($recipe_id)
-    {
-        // initialise recipe_info
-        $initRating = $this->selectRecipeInfoById($recipe_id);
-
-        // loop through array to find record_type = W with correstponding number_field (rating)
-        foreach ($initRating as $key => $value) {
-            if ($value['record_type'] === 'W') {
-                $rating[] = $value['number_field'];
-            }
-        }
-
-        // calculate average rating
-        $ratingSum = array_sum($rating);
-        $ratingAverage = $ratingSum / count($rating);
-        return ($ratingAverage);
-    }
 
     public function selectSteps($recipe_id)
     {
@@ -193,4 +176,23 @@ class recipe
             return TRUE;
         }
     }
+
+    public function selectRating($recipe_id)
+    {
+        // initialise recipe_info
+        $initRating = $this->selectRecipeInfoById($recipe_id);
+
+        // loop through array to find record_type = W with correstponding number_field (rating)
+        foreach ($initRating as $key => $value) {
+            if ($value['record_type'] === 'W') {
+                $rating[] = $value['number_field'];
+            }
+        }
+
+        // calculate average rating
+        $ratingSum = array_sum($rating);
+        $ratingAverage = $ratingSum / count($rating);
+        return ($ratingAverage);
+    }
+ 
 }

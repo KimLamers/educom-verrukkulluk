@@ -84,6 +84,8 @@ class recipe_info {
         return($recipeInfoArray);
     }
 
+
+    /** COMMENTS **/
     public function selectComments($recipe_id) {
 
         $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'O'";
@@ -111,6 +113,8 @@ class recipe_info {
         return($recipeInfoCommentArray);
     }
 
+
+    /** PREPARATION  **/
     public function selectPreparation($recipe_id) {
 
         $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'B'";
@@ -132,6 +136,34 @@ class recipe_info {
         return($recipeInfoPreparationArray);
     }
 
+    /** RATING **/
+    public function selectAverageRating($recipe_id) {
+
+        $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'W'";
+        $result = mysqli_query($this->connection, $sql);
+
+        while($recipe_info = mysqli_fetch_array($result)) {
+            $recipeInfoRatingArray[] = [
+                "id" => $recipe_info['id'],
+                "record_type" => $recipe_info['record_type'],
+                "recipe_id" => $recipe_info['recipe_id'],
+                "number_field" => $recipe_info['number_field'],
+            ];
+        }
+
+        foreach ($recipeInfoRatingArray as $key => $value) {
+            $rating[] = $value['number_field'];
+        }
+
+        $ratingSum = array_sum($rating);
+        $ratingAverage = $ratingSum / count($rating);
+
+        return ($ratingAverage);
+    }
+
+
+
+    /** FAVORITES **/
     public function addRecipeToFavorites($recipe_info_id, $recipe_id, $user_id) {
         // check if record already exists
         // clean data
