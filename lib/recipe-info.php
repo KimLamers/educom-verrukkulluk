@@ -137,8 +137,9 @@ class recipe_info {
     }
 
     /** RATING **/
-    public function selectAverageRating($recipe_id) {
-
+    public function calcAverageRating($recipe_id) {
+        
+        /* get all ratings for specified recipe_id */
         $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'W'";
         $result = mysqli_query($this->connection, $sql);
 
@@ -151,17 +152,55 @@ class recipe_info {
             ];
         }
 
+        /* put all retrieved ratings into seperate array */
         foreach ($recipeInfoRatingArray as $key => $value) {
             $rating[] = $value['number_field'];
         }
 
+        /* and calculate the average rating */
         $ratingSum = array_sum($rating);
         $ratingAverage = $ratingSum / count($rating);
 
         return ($ratingAverage);
     }
 
+    /* UPDATE RATING FROM FRONTEND TO DATABASE */
+    // if clicked on a star on frontend (JQuery)
+    public function addOrUpdateRatingRecord ($recipe_id, $user_id) {
 
+
+        // query
+        $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'W'";
+        $result = mysqli_query($this->connection, $sql);
+
+        // check if record already exists
+        if (mysqli_num_rows($result) > 0) { 
+
+            // update record
+            $sql_update = "UPDATE recipe_info
+                           SET number_field = 3
+                           WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'W'";
+                // check success
+                if (mysqli_query($this->connection, $sql_update)) {
+                    echo "Successfully updated the record ";
+                } else {
+                    echo "ERROR: unable to update record $sql_update. " . mysqli_error($this->connection);
+                }
+
+        // if record does not exist        
+        } elseif (mysqli_num_rows($result) == 0) { 
+
+            // create new record
+            $sql_create = "INSERT INTO recipe_info (id, record_type, recipe_id, user_id, date, number_field, text_field)
+                           VALUES (NULL, 'W', $recipe_id, $user_id, NULL, 3, NULL)";
+                // check success 
+                if (mysqli_query($this->connection, $sql_create)) {
+                    echo "Record successfully created";
+                } else {
+                    echo "ERROR: unable to create record $sql_create. " . mysqli_error($this->connection);
+                }
+        }
+    }
 
     /** FAVORITES **/
     public function addRecipeToFavorites($recipe_info_id, $recipe_id, $user_id) {

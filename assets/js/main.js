@@ -32,25 +32,27 @@ function openTab(event, tabName) {
 
 
 /* RATING SYSTEM */
+
 $(".content__container-recipe-detail-info-top--rating svg").click(function () {
-    const value = $(this).attr('data-value');
-
-    $(".content__container-recipe-detail-info-top--rating svg").removeClass('content__container-recipe-detail-info-top--rating-filled')
-
+    const ratingValue = $(this).attr('data-value');
 
     $.ajax ({
         url: "https://api.dev-master.ninja/js/rating",
         method: "POST",
-        data: { rating: value },
+        data: { rating: ratingValue },
         success: function(result){
+            console.log(result);
+        }
+    })
+
+    $(".content__container-recipe-detail-info-top--rating svg").removeClass('content__container-recipe-detail-info-top--rating-filled')
 
             $('.content__container-recipe-detail-info-top--rating svg').each( (index, elem) => {
                 const itemValue = $(elem).attr('data-value');
-                if(itemValue <= value) {
+                if(itemValue <= ratingValue) {
                     $(elem).addClass('content__container-recipe-detail-info-top--rating-filled');
                 }
             })
-            console.log(`Value: ${ value }`);
-        }
-    })
+            console.log(`Value: ${ ratingValue }`);
 })
+

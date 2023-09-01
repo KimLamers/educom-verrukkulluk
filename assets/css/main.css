@@ -672,7 +672,7 @@ html, body {
     cursor: pointer;
 }
 
-.content__container-recipe-detail-info-top--rating svg:hover {
+.content__container-recipe-detail-info-top--rating-hover {
     fill: var(--darker-orange);
 }
 
