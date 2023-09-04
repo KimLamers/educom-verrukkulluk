@@ -441,7 +441,7 @@ html, body {
 }
 
 .content__container-recipe-content-top--rating svg {
-    fill: var(--lighter-orange);
+    fill: rgb(247, 211, 196);
     height: auto;
     width: 25px;
     top: 0px;

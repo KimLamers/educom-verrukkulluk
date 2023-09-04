@@ -25,14 +25,12 @@ $ingredient = new ingredient($db->getConnection());
 $comments = new recipe_info($db->getConnection());
 $preparation = new recipe_info($db->getConnection());
 $averageRating = new recipe_info($db->getConnection());
-$ratingRecords = new recipe_info($db->getConnection());
+$createRatingRecords = new recipe_info($db->getConnection());
 
 $data = $recipe->selectRecipeById();
 $ingredient_data = $ingredient->selectIngredient(1);
 $comments_data = $comments->selectComments(1);
 $preparation_data = $preparation->selectPreparation(1);
-$averageRating_data = $averageRating->calcAverageRating();
-//$ratingRecords_data = $ratingRecords->createRatingRecord();
 
 
 /*
@@ -41,9 +39,10 @@ http://localhost/index.php?recipe_id=4&action=detail
 */
 
 $recipe_id = isset($_GET["id"]) ? $_GET["id"] : null;
+$rating = isset($_GET['rating']) ? $_GET['rating'] : 0;
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 
-
+// record.average voor gemiddelde sterren voor frondend
 switch($action) {
 
         case "homepage": {
@@ -59,16 +58,16 @@ switch($action) {
             $comments_data = $comments->selectComments($recipe_id);
             $preparation_data = $preparation->selectPreparation($recipe_id);
             $averageRating_data = $averageRating->calcAverageRating($recipe_id);
-            //$ratingRecords_data = $ratingRecords->createRatingRecord($recipe_id, 1); // recipe_id, user_id
             $template = 'detail.html.twig';
             $title = "Detail pagina";
             break;
         }
 
         case "create_rating": {
-            $ratingRecords_data = $ratingRecords->insertRatingRecord($recipe_id, $user_id); // recipe_id, user_id
-            $template = 'detail.html.twig';
-            $title = "detail pagina";
+            $ratingRecords_data = $createRatingRecords->createRatingRecord($recipe_id, $rating);
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($ratingRecords_data) ;
+            die();
             break;
         }
 
@@ -104,4 +103,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "averageRating_data" => $averageRating_data]);
+echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data]);

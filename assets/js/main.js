@@ -33,18 +33,17 @@ function openTab(event, tabName) {
 
 /* RATING SYSTEM */
 
-
+// user creating corresponding database entry by clicking on star (detail page)
 $(".content__container-recipe-detail-info-top--rating svg").click(function () {
     const ratingValue = $(this).attr('data-value');
-
-// FIRST SEND TO INDEX, USE SWITCH CASE TO CALL FUNCTION addOrUpdate
+    const recipe_id = $(this).attr('data-id');
+    const url = `index.php?id=${ recipe_id }&action=create_rating&rating=${ ratingValue }`
 
     $.ajax ({
-        url: "",
-        method: "POST",
-        data: { rating: ratingValue },
+        url: url,
+        method: "GET",
         success: function(result){
-            console.log(ratingValue);
+            console.log(result);
         }
     })
 
@@ -59,3 +58,7 @@ $(".content__container-recipe-detail-info-top--rating svg").click(function () {
             console.log(`Value: ${ ratingValue }`);
 })
 
+// display amount of stars corresponding to average rating, rounded (homepage)
+$('.content__container-recipe-content-top--rating svg').each( (index, elem) => {
+    
+})

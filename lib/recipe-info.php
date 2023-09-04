@@ -112,11 +112,9 @@ class recipe_info {
     }
 
     /** RATING AVERAGE **/
-    public function calcAverageRating($recipe_id = NULL) {
+    public function calcAverageRating($recipe_id) {
         
         /* get all ratings for specified recipe_id */
-        
-        if($recipe_id !== NULL) {
             $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'W'";
 
             $result = mysqli_query($this->connection, $sql);
@@ -132,20 +130,19 @@ class recipe_info {
             $averageRating = $totalValueOfRatings > 0 ? $totalValueOfRatings / $numberOfRatings: NULL;
 
             return($averageRating);
-
-        } else {
-            return NULL;
-        }
     }
 
     /* CREATE RECORD FOR RATING IN DATABASE */
-    public function createRatingRecord($recipe_id = NULL, $user_id = NULL) {
+    public function createRatingRecord($recipe_id = NULL, $number_field = NULL) {
+        $sql= "INSERT INTO recipe_info (record_type, recipe_id, number_field)
+        VALUES ('W', $recipe_id, $number_field)";
 
-        if($recipe_id) {
-            $sql_create = "INSERT INTO recipe_info (id, record_type, recipe_id, user_id, date, number_field, text_field)
-            VALUES (NULL, 'W', $recipe_id, $user_id, NULL, 3, NULL)";
-        }
-
+        $result = mysqli_query($this->connection, $sql);
+        return( [
+            "recipe_id" => $recipe_id,
+            "value" => $number_field,
+            "average" => round($this->calcAverageRating($recipe_id))
+        ]);
     }
 
 
