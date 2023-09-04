@@ -33,15 +33,18 @@ function openTab(event, tabName) {
 
 /* RATING SYSTEM */
 
+
 $(".content__container-recipe-detail-info-top--rating svg").click(function () {
     const ratingValue = $(this).attr('data-value');
 
+// FIRST SEND TO INDEX, USE SWITCH CASE TO CALL FUNCTION addOrUpdate
+
     $.ajax ({
-        url: "https://api.dev-master.ninja/js/rating",
+        url: "",
         method: "POST",
         data: { rating: ratingValue },
         success: function(result){
-            console.log(result);
+            console.log(ratingValue);
         }
     })
 

@@ -1,9 +1,9 @@
 <?php
 //// Allereerst zorgen dat de "Autoloader" uit vendor opgenomen wordt:
-require_once("E:/Tijdelijke downloads/Programming/XAMPP/XAMPP/htdocs/vendor/autoload.php");
+require_once("/Users/Kimmie/Projecten/Software/vendor/autoload.php");
 
 /// Twig koppelen:
-$loader = new \Twig\Loader\FilesystemLoader("E:/Tijdelijke downloads/Programming/XAMPP/XAMPP/htdocs/educom-verrukkulluk/templates");
+$loader = new \Twig\Loader\FilesystemLoader("/Users/Kimmie/Projecten/educom-verrukkulluk/templates");
 /// VOOR PRODUCTIE:
 /// $twig = new \Twig\Environment($loader), ["cache" => "./cache/cc"]);
 
@@ -32,7 +32,7 @@ $ingredient_data = $ingredient->selectIngredient(1);
 $comments_data = $comments->selectComments(1);
 $preparation_data = $preparation->selectPreparation(1);
 $averageRating_data = $averageRating->calcAverageRating(1);
-$ratingRecords_data = $ratingRecords->addOrUpdateRatingRecord(1,1);
+$ratingRecords_data = $ratingRecords->addOrUpdateRatingRecord();
 
 
 /*
@@ -65,17 +65,17 @@ switch($action) {
             break;
         }
 
-        case "shoppinglist": {
-            $data = $recipe->selectRecipeById(); // recipe_id
-            $template = 'shoppinglist.html.twig';
-            $title = "shopping list";
+        case "addOrUpdate_rating": {
+            $ratingRecords_data = $ratingRecords->addOrUpdateRatingRecord($recipe_id, $user_id); // recipe_id, user_id
+            $template = 'detail.html.twig';
+            $title = "detail pagina";
             break;
         }
 
-        // case "add_rating": {
-        //     $data = $rating->selectRating(1); // recipe_id
-        //     $template = 'detail.html.twig';
-        //     $title = "detail pagina";
+        // case "shoppinglist": {
+        //     $data = $recipe->selectRecipeById(); // recipe_id
+        //     $template = 'shoppinglist.html.twig';
+        //     $title = "shopping list";
         //     break;
         // }
 
@@ -104,4 +104,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "averageRating_data" => $averageRating_data]);
+echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "ratingRecords" => $ratingRecords_data]);

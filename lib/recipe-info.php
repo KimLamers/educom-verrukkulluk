@@ -136,8 +136,8 @@ class recipe_info {
         return($recipeInfoPreparationArray);
     }
 
-    /** RATING **/
-    public function calcAverageRating($recipe_id) {
+    /** RATING AVERAGE **/
+    public function calcAverageRating($recipe_id = NULL) {
         
         /* get all ratings for specified recipe_id */
         $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'W'";
@@ -164,28 +164,34 @@ class recipe_info {
         return ($ratingAverage);
     }
 
-    /* UPDATE RATING FROM FRONTEND TO DATABASE */
+    /* UPDATE RATING (FROM FRONTEND) IN DATABASE */
     // if clicked on a star on frontend (JQuery)
-    public function addOrUpdateRatingRecord ($recipe_id, $user_id) {
+    public function addOrUpdateRatingRecord ($recipe_id = NULL, $user_id = NULL) {
 
 
         // query
         $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'W'";
-        $result = mysqli_query($this->connection, $sql);
+        if(!$sql) {
+            $result = mysqli_query($this->connection, $sql);
+        } else  {
+            $result = NULL;
+        }
 
         // check if record already exists
-        if (mysqli_num_rows($result) > 0) { 
+        if($result !== NULL) {
+            if (mysqli_num_rows($result) > 0) { 
 
-            // update record
-            $sql_update = "UPDATE recipe_info
-                           SET number_field = 3
-                           WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'W'";
-                // check success
-                if (mysqli_query($this->connection, $sql_update)) {
-                    echo "Successfully updated the record ";
-                } else {
-                    echo "ERROR: unable to update record $sql_update. " . mysqli_error($this->connection);
-                }
+                // update record
+                $sql_update = "UPDATE recipe_info
+                            SET number_field = 3
+                            WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'W'";
+                    // check success
+                    if (mysqli_query($this->connection, $sql_update)) {
+                        echo "Successfully updated the record ";
+                    } else {
+                        echo "ERROR: unable to update record $sql_update. " . mysqli_error($this->connection);
+                    }
+        
 
         // if record does not exist        
         } elseif (mysqli_num_rows($result) == 0) { 
@@ -199,7 +205,7 @@ class recipe_info {
                 } else {
                     echo "ERROR: unable to create record $sql_create. " . mysqli_error($this->connection);
                 }
-        }
+        }}
     }
 
     /** FAVORITES **/
