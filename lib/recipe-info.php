@@ -24,61 +24,36 @@ class recipe_info {
         $result = mysqli_query($this->connection, $sql);
         
         $recipeInfoArray = [];
-    
 
         
         while($recipe_info = mysqli_fetch_array($result)) {
+    
+            $recipeInfoArray[] = [
+                "id" => $recipe_info['id'],
+                "record_type" => $recipe_info['record_type'],
+                "recipe_id" => $recipe_info['recipe_id'],
+                "date" => $recipe_info['date'],
+                "number_field" => $recipe_info['number_field'],
+                "text_field" => $recipe_info['text_field'],
+            ];
+
             
-        // if record type is 'O'
-            if(isset($recipe_info['record_type']) && $recipe_info['record_type'] === 'O') { 
+        // Alle algemene info die overal wordt opgeroepen sowieso oproepen buiten de if, dan de rest oproepen en array_merge
+
+        // if record type is 'O' or 'F'
+            if(isset($recipe_info['record_type']) && $recipe_info['record_type'] === 'O' || $recipe_info['record_type'] === 'F') { 
 
                 // get user
                 $user = $this->selectUser($recipe_info['user_id'], MYSQLI_ASSOC);
 
                 $recipeInfoArray[] = [
-                    "id" => $recipe_info['id'],
-                    "record_type" => $recipe_info['record_type'],
-                    "recipe_id" => $recipe_info['recipe_id'],
-                    "user_id" => $recipe_info['user_id'],
-                    "date" => $recipe_info['date'],
-                    "number_field" => $recipe_info['number_field'],
-                    "text_field" => $recipe_info['text_field'],
+
                     "username" => $user['username'],
                     "password" => $user['password'],
                     "email" => $user['email'],
                     "user_image"=> $user['user_image'],
                 ];
-                // if record type is 'F'
-            } elseif(isset($recipe_info['record_type']) && $recipe_info['record_type'] === 'F') {                // else for testing
-                
-                // get user
-                $user = $this->selectUser($recipe_info['user_id'], MYSQLI_ASSOC);
 
-                $recipeInfoArray[] = [
-                    "id" => $recipe_info['id'],
-                    "record_type" => $recipe_info['record_type'],
-                    "recipe_id" => $recipe_info['recipe_id'],
-                    "user_id" => $recipe_info['user_id'],
-                    "date" => $recipe_info['date'],
-                    "number_field" => $recipe_info['number_field'],
-                    "text_field" => $recipe_info['text_field'],
-                    "username" => $user['username'],
-                    "password" => $user['password'],
-                    "email" => $user['email'],
-                    "user_image" => $user['user_image'],
-                ];
-                // if record type not 'O' or 'F'
-            } else {
-                 
-                // no need to get user
-                $recipeInfoArray[] = [
-                    "id" => $recipe_info['id'],
-                    "record_type" => $recipe_info['record_type'],
-                    "recipe_id" => $recipe_info['recipe_id'],
-                    "date" => $recipe_info['date'],
-                    "number_field" => $recipe_info['number_field'],
-                    "text_field" => $recipe_info['text_field'],
-                ];
             }
         }
         return($recipeInfoArray);
@@ -140,73 +115,39 @@ class recipe_info {
     public function calcAverageRating($recipe_id = NULL) {
         
         /* get all ratings for specified recipe_id */
-        $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'W'";
-        $result = mysqli_query($this->connection, $sql);
-
-        while($recipe_info = mysqli_fetch_array($result)) {
-            $recipeInfoRatingArray[] = [
-                "id" => $recipe_info['id'],
-                "record_type" => $recipe_info['record_type'],
-                "recipe_id" => $recipe_info['recipe_id'],
-                "number_field" => $recipe_info['number_field'],
-            ];
-        }
-
-        /* put all retrieved ratings into seperate array */
-        foreach ($recipeInfoRatingArray as $key => $value) {
-            $rating[] = $value['number_field'];
-        }
-
-        /* and calculate the average rating */
-        $ratingSum = array_sum($rating);
-        $ratingAverage = $ratingSum / count($rating);
-
-        return ($ratingAverage);
-    }
-
-    /* UPDATE RATING (FROM FRONTEND) IN DATABASE */
-    // if clicked on a star on frontend (JQuery)
-    public function addOrUpdateRatingRecord ($recipe_id = NULL, $user_id = NULL) {
-
-
-        // query
-        $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'W'";
-        if(!$sql) {
-            $result = mysqli_query($this->connection, $sql);
-        } else  {
-            $result = NULL;
-        }
-
-        // check if record already exists
-        if($result !== NULL) {
-            if (mysqli_num_rows($result) > 0) { 
-
-                // update record
-                $sql_update = "UPDATE recipe_info
-                            SET number_field = 3
-                            WHERE recipe_id = $recipe_id AND user_id = $user_id AND record_type = 'W'";
-                    // check success
-                    if (mysqli_query($this->connection, $sql_update)) {
-                        echo "Successfully updated the record ";
-                    } else {
-                        echo "ERROR: unable to update record $sql_update. " . mysqli_error($this->connection);
-                    }
         
+        if($recipe_id !== NULL) {
+            $sql = "SELECT * FROM recipe_info WHERE recipe_id = $recipe_id AND record_type = 'W'";
 
-        // if record does not exist        
-        } elseif (mysqli_num_rows($result) == 0) { 
+            $result = mysqli_query($this->connection, $sql);
 
-            // create new record
-            $sql_create = "INSERT INTO recipe_info (id, record_type, recipe_id, user_id, date, number_field, text_field)
-                           VALUES (NULL, 'W', $recipe_id, $user_id, NULL, 3, NULL)";
-                // check success 
-                if (mysqli_query($this->connection, $sql_create)) {
-                    echo "Record successfully created";
-                } else {
-                    echo "ERROR: unable to create record $sql_create. " . mysqli_error($this->connection);
-                }
-        }}
+            $totalValueOfRatings = 0;
+            $numberOfRatings = 0;
+
+            while($recipe_info = mysqli_fetch_array($result)) {
+                $totalValueOfRatings = $totalValueOfRatings + $recipe_info['number_field'];
+                $numberOfRatings++;
+            }
+
+            $averageRating = $totalValueOfRatings > 0 ? $totalValueOfRatings / $numberOfRatings: NULL;
+
+            return($averageRating);
+
+        } else {
+            return NULL;
+        }
     }
+
+    /* CREATE RECORD FOR RATING IN DATABASE */
+    public function createRatingRecord($recipe_id = NULL, $user_id = NULL) {
+
+        if($recipe_id) {
+            $sql_create = "INSERT INTO recipe_info (id, record_type, recipe_id, user_id, date, number_field, text_field)
+            VALUES (NULL, 'W', $recipe_id, $user_id, NULL, 3, NULL)";
+        }
+
+    }
+
 
     /** FAVORITES **/
     public function addRecipeToFavorites($recipe_info_id, $recipe_id, $user_id) {

@@ -31,8 +31,8 @@ $data = $recipe->selectRecipeById();
 $ingredient_data = $ingredient->selectIngredient(1);
 $comments_data = $comments->selectComments(1);
 $preparation_data = $preparation->selectPreparation(1);
-$averageRating_data = $averageRating->calcAverageRating(1);
-$ratingRecords_data = $ratingRecords->addOrUpdateRatingRecord();
+$averageRating_data = $averageRating->calcAverageRating();
+//$ratingRecords_data = $ratingRecords->createRatingRecord();
 
 
 /*
@@ -59,14 +59,14 @@ switch($action) {
             $comments_data = $comments->selectComments($recipe_id);
             $preparation_data = $preparation->selectPreparation($recipe_id);
             $averageRating_data = $averageRating->calcAverageRating($recipe_id);
-            $ratingRecords_data = $ratingRecords->addOrUpdateRatingRecord(1,1); // recipe_id, user_id
+            //$ratingRecords_data = $ratingRecords->createRatingRecord($recipe_id, 1); // recipe_id, user_id
             $template = 'detail.html.twig';
             $title = "Detail pagina";
             break;
         }
 
-        case "addOrUpdate_rating": {
-            $ratingRecords_data = $ratingRecords->addOrUpdateRatingRecord($recipe_id, $user_id); // recipe_id, user_id
+        case "create_rating": {
+            $ratingRecords_data = $ratingRecords->insertRatingRecord($recipe_id, $user_id); // recipe_id, user_id
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;
@@ -104,4 +104,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "ratingRecords" => $ratingRecords_data]);
+echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "averageRating_data" => $averageRating_data]);
