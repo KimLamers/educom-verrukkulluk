@@ -451,6 +451,10 @@ html, body {
     justify-content: flex-end;
 }
 
+.content__container-recipe-content-top--rating-filled {
+    fill: var(--darker-orange) !important;
+}
+
 .content__container-recipe-content-description {
     font-size: 16px;
     margin-top: 20px;
@@ -677,7 +681,7 @@ html, body {
 }
 
 .content__container-recipe-detail-info-top--rating-filled {
-    fill: var(--lighter-orange) !important;
+    fill: var(--darker-orange) !important;
 }
 
 .content__container-recipe-detail-info-middle-holder {

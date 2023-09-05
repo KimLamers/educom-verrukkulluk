@@ -66,7 +66,7 @@ switch($action) {
         case "create_rating": {
             $ratingRecords_data = $createRatingRecords->createRatingRecord($recipe_id, $rating);
             header('Content-Type: application/json; charset=utf-8');
-            echo json_encode($ratingRecords_data) ;
+            echo json_encode($ratingRecords_data);
             die();
             break;
         }

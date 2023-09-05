@@ -34,31 +34,50 @@ function openTab(event, tabName) {
 /* RATING SYSTEM */
 
 // user creating corresponding database entry by clicking on star (detail page)
-$(".content__container-recipe-detail-info-top--rating svg").click(function () {
+$('.content__container-recipe-detail-info-top--rating svg, .content__container-recipe-content-top--rating svg').click(function () {
     const ratingValue = $(this).attr('data-value');
     const recipe_id = $(this).attr('data-id');
-    const url = `index.php?id=${ recipe_id }&action=create_rating&rating=${ ratingValue }`
+    const url = `index.php?id=${ recipe_id }&action=create_rating&rating=${ ratingValue }`;
+
 
     $.ajax ({
         url: url,
         method: "GET",
         success: function(result){
             console.log(result);
-        }
-    })
+            var averageRating = result.average;
+            console.log(`The average rating is ${ averageRating } star(s) for this recipe`);
 
-    $(".content__container-recipe-detail-info-top--rating svg").removeClass('content__container-recipe-detail-info-top--rating-filled')
+            // DETAIL PAGE: fill stars corresponding to average rating for recipe
+            $(".content__container-recipe-detail-info-top--rating svg").removeClass('content__container-recipe-detail-info-top--rating-filled')
 
             $('.content__container-recipe-detail-info-top--rating svg').each( (index, elem) => {
                 const itemValue = $(elem).attr('data-value');
-                if(itemValue <= ratingValue) {
+                if(itemValue <= averageRating) {
                     $(elem).addClass('content__container-recipe-detail-info-top--rating-filled');
                 }
             })
-            console.log(`Value: ${ ratingValue }`);
-})
 
-// display amount of stars corresponding to average rating, rounded (homepage)
-$('.content__container-recipe-content-top--rating svg').each( (index, elem) => {
-    
+            // DETAIL PAGE: feedback on which rating was given
+            // console.log(`You rated this recipe ${ result.value } star(s)`)
+            // alert(`You rated this recipe ${ result.value } star(s)`);
+
+
+            // HOMEPAGE: fill stars corresponding to average rating for recipe
+            $(".content__container-recipe-content-top--rating svg").removeClass('content__container-recipe-content-top--rating-filled')
+
+            $('.content__container-recipe-content-top--rating svg').each( (index, elem) => {
+                const itemValue = $(elem).attr('data-value');
+                if(itemValue <= averageRating) {
+                    $(elem).addClass('content__container-recipe-content-top--rating-filled');
+                }
+            })
+
+            // HOMEPAGE: feedback on which rating was given
+            // console.log(`You rated this recipe ${ result.value } star(s)`)
+            // alert(`You rated this recipe ${ result.value } star(s)`);
+
+
+        }
+    })
 })
