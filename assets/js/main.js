@@ -58,26 +58,135 @@ $('.content__container-recipe-detail-info-top--rating svg, .content__container-r
                 }
             })
 
-            // DETAIL PAGE: feedback on which rating was given
-            // console.log(`You rated this recipe ${ result.value } star(s)`)
-            // alert(`You rated this recipe ${ result.value } star(s)`);
-
-
             // HOMEPAGE: fill stars corresponding to average rating for recipe
             $(".content__container-recipe-content-top--rating svg").removeClass('content__container-recipe-content-top--rating-filled')
 
             $('.content__container-recipe-content-top--rating svg').each( (index, elem) => {
                 const itemValue = $(elem).attr('data-value');
-                if(itemValue <= averageRating) {
-                    $(elem).addClass('content__container-recipe-content-top--rating-filled');
+                const elem_id = $(elem).attr('data-id');
+
+                // uitzetten op basis van recipe_id, niet class
+                if(result.recipe_id === "1") {
+                    if(elem_id === "1-1") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "1-2") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "1-3") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "1-4") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "1-5") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                }
+                if(result.recipe_id === "2") {
+                    if(elem_id === "2-1") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "2-2") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "2-3") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "2-4") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "2-5") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                }
+                if(result.recipe_id === "3") {
+                    if(elem_id === "3-1") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "3-2") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "3-3") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "3-4") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "3-5") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                }
+                if(result.recipe_id === "4") {
+                    if(elem_id === "4-1") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "4-2") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "4-3") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "4-4") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
+                    if(elem_id === "4-5") {
+                        if(itemValue <= result.average) {
+                            $(elem).addClass('content__container-recipe-content-top--rating-filled')
+                        }
+                    }
                 }
             })
 
-            // HOMEPAGE: feedback on which rating was given
-            // console.log(`You rated this recipe ${ result.value } star(s)`)
-            // alert(`You rated this recipe ${ result.value } star(s)`);
+            // $('.content__container-recipe-detail-info-top--rating svg').each( (index, elem) => {
+            //     const elem_id = $(elem).attr('data-id');
+            //     const itemValue = $(elem).attr('data-value');
+            //     console.log(itemValue);
 
-
+            //     if(elem_id == '1-1') {
+            //         if(itemValue <= averageRating) {
+            //             $(elem).addClass('content__container-recipe-content-top--rating-filled')
+            //         }
+            //     }
+            // })
         }
     })
 })

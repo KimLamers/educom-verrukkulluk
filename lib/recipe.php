@@ -93,6 +93,7 @@ class recipe
                 "ingredients" => $ingredients,
                 "recipe_price" => array_sum(array_column($ingredients, 'article_price')),
                 "recipe_calories" => array_sum(array_column($ingredients, 'article_calories')),
+                "recipe_rating" => $this->ratingStepsRemarks->calcAverageRating($recipe['id']),
             ];
         }
         return ($recipeArray);

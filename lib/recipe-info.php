@@ -129,11 +129,12 @@ class recipe_info {
 
             $averageRating = $totalValueOfRatings > 0 ? $totalValueOfRatings / $numberOfRatings: NULL;
 
-            return($averageRating);
+            return(round($averageRating));
     }
 
     /* CREATE RECORD FOR RATING IN DATABASE */
     public function createRatingRecord($recipe_id = NULL, $number_field = NULL) {
+        $recipe_id = mb_substr($recipe_id, 0, 1);
         $sql= "INSERT INTO recipe_info (record_type, recipe_id, number_field)
         VALUES ('W', $recipe_id, $number_field)";
 
