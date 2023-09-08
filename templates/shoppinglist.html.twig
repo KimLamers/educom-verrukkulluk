@@ -111,6 +111,8 @@
             </div>
         </div>
 
+
+        {# SHOPPING LIST PLACEHOLDER #}
         <div class="col-md-9">
             <div class="shoppinglist__content-holder">
                 <div class="shoppinglist__content-title-holder">
@@ -119,214 +121,35 @@
                     </div>
                 </div>
                 <div class="shoppinglist__content-articles-holder">
+                {% for record in articleOnList_data %}
+                
                     <div class="shoppinglist__content-articles-info-holder">
                         <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
+                            <img class="table__content-image" src="{{ record.article_packaging }}"/>
                         </div>
                         <div class="table__content-text-holder">
                             <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
+                                {{ record.article_name}}
                             </div>
                             <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
+                                {{ record.article_description }}
                             </div>
                             <div class="table__content-bottom-holder">
                                 <div class="pretty-lily table__content-bottom-text">
                                     Hoeveelheid
                                 </div>
                                 <div class="table__content-bottom-amount">
-                                    1
+                                    {{ record.amount}}
                                 </div>
                             </div>
                         </div>
                         <div class="shoppinglist__content-icon-holder">
                             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
                             </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
+                            <input type="text" class="shoppinglist__content-article-amount" placeholder="{{ record.amount }}"/>
                         </div>
                     </div>
-                    <div class="shoppinglist__content-articles-info-holder">
-                        <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
-                        </div>
-                        <div class="table__content-text-holder">
-                            <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
-                            </div>
-                            <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
-                            </div>
-                            <div class="table__content-bottom-holder">
-                                <div class="pretty-lily table__content-bottom-text">
-                                    Hoeveelheid
-                                </div>
-                                <div class="table__content-bottom-amount">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shoppinglist__content-icon-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-                            </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
-                        </div>
-                    </div>
-                    <div class="shoppinglist__content-articles-info-holder">
-                        <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
-                        </div>
-                        <div class="table__content-text-holder">
-                            <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
-                            </div>
-                            <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
-                            </div>
-                            <div class="table__content-bottom-holder">
-                                <div class="pretty-lily table__content-bottom-text">
-                                    Hoeveelheid
-                                </div>
-                                <div class="table__content-bottom-amount">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shoppinglist__content-icon-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-                            </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
-                        </div>
-                    </div>
-                    <div class="shoppinglist__content-articles-info-holder">
-                        <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
-                        </div>
-                        <div class="table__content-text-holder">
-                            <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
-                            </div>
-                            <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
-                            </div>
-                            <div class="table__content-bottom-holder">
-                                <div class="pretty-lily table__content-bottom-text">
-                                    Hoeveelheid
-                                </div>
-                                <div class="table__content-bottom-amount">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shoppinglist__content-icon-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-                            </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
-                        </div>
-                    </div>
-                    <div class="shoppinglist__content-articles-info-holder">
-                        <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
-                        </div>
-                        <div class="table__content-text-holder">
-                            <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
-                            </div>
-                            <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
-                            </div>
-                            <div class="table__content-bottom-holder">
-                                <div class="pretty-lily table__content-bottom-text">
-                                    Hoeveelheid
-                                </div>
-                                <div class="table__content-bottom-amount">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shoppinglist__content-icon-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-                            </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
-                        </div>
-                    </div>
-                    <div class="shoppinglist__content-articles-info-holder">
-                        <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
-                        </div>
-                        <div class="table__content-text-holder">
-                            <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
-                            </div>
-                            <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
-                            </div>
-                            <div class="table__content-bottom-holder">
-                                <div class="pretty-lily table__content-bottom-text">
-                                    Hoeveelheid
-                                </div>
-                                <div class="table__content-bottom-amount">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shoppinglist__content-icon-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-                            </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
-                        </div>
-                    </div>
-                    <div class="shoppinglist__content-articles-info-holder">
-                        <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
-                        </div>
-                        <div class="table__content-text-holder">
-                            <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
-                            </div>
-                            <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
-                            </div>
-                            <div class="table__content-bottom-holder">
-                                <div class="pretty-lily table__content-bottom-text">
-                                    Hoeveelheid
-                                </div>
-                                <div class="table__content-bottom-amount">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shoppinglist__content-icon-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-                            </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
-                        </div>                        
-                    </div>
-                    <div class="shoppinglist__content-articles-info-holder">
-                        <div class="table__content-image">
-                            <img class="table__content-image" src="assets/img/hamburger_bun.png"/>
-                        </div>
-                        <div class="table__content-text-holder">
-                            <div class="pretty-lily table__content-text-title">
-                                Hamburger buns
-                            </div>
-                            <div class="table__content-text-description">
-                                Lorem ipsum dolor sit amet, consectetur adip
-                            </div>
-                            <div class="table__content-bottom-holder">
-                                <div class="pretty-lily table__content-bottom-text">
-                                    Hoeveelheid
-                                </div>
-                                <div class="table__content-bottom-amount">
-                                    1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="shoppinglist__content-icon-holder">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/>
-                            </svg>
-                            <input type="text" class="shoppinglist__content-article-amount"/>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="table__scroll">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
@@ -336,6 +159,24 @@
         </div>
     </div>
 </div>
+
+
+{# 
+
+
+BACKEND:
+- schrijf funtie voor het verwijderen van articles uit shoppinglist database
+    - shopping-list.php -> removeFromShoppingList
+
+
+FRONTEND:
+- icoon op detail pagina om ALLE artikelen toe te voegen aan database shoppinglist
+    - shopping-list.php -> addToShoppingList
+
+- icoon om artikel te verwijderen uit shoppinglist (en dus database)
+    - shopping-list.php -> removeFromShoppingList (STILL TO WRITE)
+    
+ #}
 
 
 

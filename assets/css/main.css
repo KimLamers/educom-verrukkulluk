@@ -741,6 +741,7 @@ html, body {
     border-radius: 30px;
     background-color: var(--lighter-red);
     margin-right: auto;
+    text-decoration: none;
 }
 
 .content__container-recipe-detail-info-bottom-leftbutton--text {
@@ -748,6 +749,8 @@ html, body {
     color: var(--white);
     text-align: center; 
     margin-top: -10px;
+    text-decoration: none;
+    
 }
 
 .content__container-recipe-detail-info-bottom--favorite {

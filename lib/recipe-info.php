@@ -38,8 +38,6 @@ class recipe_info {
             ];
 
             
-        // Alle algemene info die overal wordt opgeroepen sowieso oproepen buiten de if, dan de rest oproepen en array_merge
-
         // if record type is 'O' or 'F'
             if(isset($recipe_info['record_type']) && $recipe_info['record_type'] === 'O' || $recipe_info['record_type'] === 'F') { 
 
