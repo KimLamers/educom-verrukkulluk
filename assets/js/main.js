@@ -117,3 +117,24 @@ $('.content__container-recipe-detail-info-top--rating svg, .content__container-r
         }
     })
 })
+
+
+/* ADD RECIPE INGREDIENTS TO SHOPPING LIST */
+$('.content__container-recipe-detail-info-bottom--leftbutton').click(function() {
+
+    
+    const recipe_id = $(this).attr('data-id');
+    const user_id = 1;
+
+    $.ajax ({
+        url: `index.php?id=${ recipe_id }&action=shoppinglist&user_id=${ user_id }`,
+        method: "GET",
+        success: addToShoppingList,
+        
+    })
+})
+
+
+
+// click button on detail page:
+//      - run function addToShoppingList
