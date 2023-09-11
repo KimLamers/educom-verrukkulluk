@@ -1,5 +1,6 @@
 <?php
 
+
 class shopping_list {
 
     private $connection;
@@ -78,6 +79,7 @@ class shopping_list {
             $article = $this->selectArticle($shoppingList['article_id'], MYSQLI_ASSOC);
 
             $currentShoppingList[] = [
+                "article_id" => $article['id'],
                 "article_name" => $article['article_name'],
                 "article_description" => $article['article_description'],
                 "article_price" => $article['article_price'],
@@ -104,8 +106,22 @@ class shopping_list {
             // return false
             echo "article is not yet on shopping list";
             //return FALSE;
+            return $currentShoppingList;
             }
     }
+
+   // DELETE SPECIFIC ARTICLE FROM SHOPPING LIST
+   public function deleteArticleShoppingList($article_id, $user_id) {
+        $sql = "DELETE FROM shopping_list WHERE article_id = $article_id AND user_id = $user_id";
+        $result = mysqli_query($this->connection, $sql);
+
+        if(mysqli_query($this->connection, $sql)) {
+            echo "This article has been deleted from the shopping list";
+        } else {
+            echo "Error: Unable to execute $sql. " . mysqli_error($this->connection);
+        }
+
+   }
         
 
 }

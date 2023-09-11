@@ -951,6 +951,7 @@ html, body {
 .shoppinglist__content-icon-holder {
     display: flex;
     flex-direction: column;
+    margin-right: 15px;
 }
 
 .shoppinglist__content-icon-holder svg {

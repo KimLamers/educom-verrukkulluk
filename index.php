@@ -1,9 +1,9 @@
 <?php
 //// Allereerst zorgen dat de "Autoloader" uit vendor opgenomen wordt:
-require_once("E:/Tijdelijke downloads/Programming/XAMPP/XAMPP/htdocs/vendor/autoload.php");
+require_once("/Users/Kimmie/Projecten/Software/vendor/autoload.php");
 
 /// Twig koppelen:
-$loader = new \Twig\Loader\FilesystemLoader("E:/Tijdelijke downloads/Programming/XAMPP/XAMPP/htdocs/educom-verrukkulluk/templates");
+$loader = new \Twig\Loader\FilesystemLoader("/Users/Kimmie/Projecten/educom-verrukkulluk/templates");
 /// VOOR PRODUCTIE:
 /// $twig = new \Twig\Environment($loader), ["cache" => "./cache/cc"]);
 
@@ -42,6 +42,7 @@ http://localhost/index.php?recipe_id=4&action=detail
 */
 
 $recipe_id = isset($_GET["id"]) ? $_GET["id"] : null;
+$user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : null;
 $rating = isset($_GET['rating']) ? $_GET['rating'] : 0;
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 
@@ -75,10 +76,10 @@ switch($action) {
         }
 
         case "shoppinglist": {
-            $data = $recipe->selectRecipeById(); // recipe_id
-            $addToShoppingList_data = $addToShoppingList->addToShoppingList(); // recipe_id, user_id
-            $articleOnList_data = $articleOnList->articleOnList(5,2); // article_id, user_id
+            $addToShoppingList_data = $addToShoppingList->addToShoppingList($recipe_id, $user_id); // recipe_id, user_id
+            $articleOnList_data = $articleOnList->articleOnList(1,1); // article_id, user_id
             $template = 'shoppinglist.html.twig';
+            $title = "Boodschappenlijst";
             break;
         }
 
