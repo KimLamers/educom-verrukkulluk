@@ -102,28 +102,42 @@ class shopping_list {
                 // return shopping_list
                 return $currentShoppingList;
             }
-        }} elseif (!$articleCheck) { // if article_id is not on shopping_list yet for user_id
-            // return false
-            echo "article is not yet on shopping list";
-            //return FALSE;
-            return $currentShoppingList;
+            }} elseif (!$articleCheck) { // if article_id is not on shopping_list yet for user_id
+                // return false
+                echo "article is not yet on shopping list";
+                return $currentShoppingList;
             }
     }
 
    // DELETE SPECIFIC ARTICLE FROM SHOPPING LIST
-   public function deleteArticleShoppingList($article_id, $user_id) {
-        $sql = "DELETE FROM shopping_list WHERE article_id = $article_id AND user_id = $user_id";
+    public function deleteArticleShoppingList($article_id, $user_id) {
+
+        // check if amount > 1, then update record to amount-1
+        $sql = "SELECT * FROM shopping_list WHERE article_id = $article_id AND user_id = $user_id";
         $result = mysqli_query($this->connection, $sql);
 
-        if(mysqli_query($this->connection, $sql)) {
-            echo "This article has been deleted from the shopping list";
-        } else {
-            echo "Error: Unable to execute $sql. " . mysqli_error($this->connection);
+        $articleOnShoppingList = [];
+
+        while($shoppingList = mysqli_fetch_array($result)) {
+            $articleOnShoppingList[] = [
+                "article_id" => $shoppingList['article_id'],
+                "user_id" => $shoppingList['user_id'],
+                "amount" => $shoppingList['amount'],
+            ];
         }
 
-   }
-        
-
+        foreach($articleOnShoppingList as $key => $value) {
+            if($value['amount'] > 1) { // if more than 1 of specific article on shopping list, amount-1
+                $sql_update = "UPDATE shopping_list SET amount = amount-1 WHERE article_id = $article_id AND user_id = $user_id";
+                $result_update = mysqli_query($this->connection, $sql_update);
+                echo "updated";
+            } elseif($value['amount'] == 1) { // if 1 of specific article on shopping list, delete
+                $sql_delete = "DELETE FROM shopping_list WHERE article_id = $article_id AND user_id = $user_id";
+                $result_delete = mysqli_query($this->connection, $sql_delete);
+                echo "deleted";
+            }
+        }
+    }
 }
 
 

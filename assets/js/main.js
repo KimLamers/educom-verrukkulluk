@@ -130,10 +130,26 @@ $('.content__container-recipe-detail-info-bottom-leftbutton--text').click(functi
         method: "GET",
         async: false,
         success: function(result) {
-        console.log(recipe_id);
-        console.log(user_id);
+            console.log(recipe_id);
+            console.log(user_id);
         }
     })
 })
 
 /* DELETE ARTICLE FROM SHOPPING LIST */
+$('.shoppinglist__content-icon-holder svg').click(function() {
+
+    const article_id = $(this).attr('data-id');
+    const user_id = 1;
+
+    $.ajax ({
+        url: `index.php?article_id=${ article_id }&action=deleteFromShoppingList&user_id=${ user_id }`,
+        method: "GET",
+        async: false,
+        success: function(result) {
+            console.log(article_id);
+            console.log(user_id);
+        }
+    })
+
+})

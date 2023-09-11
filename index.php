@@ -29,12 +29,12 @@ $averageRating = new recipe_info($db->getConnection());
 $createRatingRecords = new recipe_info($db->getConnection());
 $addToShoppingList = new shopping_list($db->getConnection());
 $articleOnList = new shopping_list($db->getConnection());
+$deleteArticleShoppingList = new shopping_list($db->getConnection());
 
 $data = $recipe->selectRecipeById();
 $ingredient_data = $ingredient->selectIngredient(1);
 $comments_data = $comments->selectComments(1);
 $preparation_data = $preparation->selectPreparation(1);
-
 
 /*
 URL:
@@ -43,6 +43,7 @@ http://localhost/index.php?recipe_id=4&action=detail
 
 $recipe_id = isset($_GET["id"]) ? $_GET["id"] : null;
 $user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : null;
+$article_id = isset($_GET["article_id"]) ? $_GET["article_id"] : null;
 $rating = isset($_GET['rating']) ? $_GET['rating'] : 0;
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 
@@ -76,11 +77,17 @@ switch($action) {
         }
 
         case "shoppinglist": {
-            $addToShoppingList_data = $addToShoppingList->addToShoppingList($recipe_id, $user_id); // recipe_id, user_id
+            $addToShoppingList_data = $addToShoppingList->addToShoppingList($recipe_id, $user_id);
             $articleOnList_data = $articleOnList->articleOnList(1,1); // article_id, user_id
             $template = 'shoppinglist.html.twig';
             $title = "Boodschappenlijst";
             break;
+        }
+
+        case "deleteFromShoppingList": {
+            $deleteArticleShoppingList_data = $deleteArticleShoppingList->deleteArticleShoppingList($article_id, $user_id);
+            $template = 'shoppinglist.html.twig';
+            $title = "Boodschappenlijst";
         }
 
         // case "favourite": {
@@ -106,4 +113,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "articleOnList_data" => $articleOnList_data]);
+echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "articleOnList_data" => $articleOnList_data, "deleteArticleShoppingList_data" => $deleteArticleShoppingList_data]);
