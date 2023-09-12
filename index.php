@@ -19,6 +19,7 @@ require_once("lib/recipe.php");
 require_once("lib/ingredient.php");
 require_once("lib/recipe-info.php");
 require_once("lib/shopping-list.php");
+require_once("lib/search.php");
 
 $db = new database();
 $recipe = new recipe($db->getConnection());
@@ -30,6 +31,7 @@ $createRatingRecords = new recipe_info($db->getConnection());
 $addToShoppingList = new shopping_list($db->getConnection());
 $articleOnList = new shopping_list($db->getConnection());
 $deleteArticleShoppingList = new shopping_list($db->getConnection());
+$search = new search($db->getConnection());
 
 $data = $recipe->selectRecipeById();
 $ingredient_data = $ingredient->selectIngredient(1);
@@ -90,6 +92,15 @@ switch($action) {
             $title = "Boodschappenlijst";
         }
 
+        case "search": {
+            $search_data = $search->searchByKeyword();
+            // $data = $keyword->;
+            $template = 'search.html.twig';
+            $title = "Zoekresultaten";
+            break;
+        }
+
+
         // case "favourite": {
         //     $data = $favorite->determineFavorite(1,1); // recipe_id, user_id
         //     $template = 'detail.html.twig';
@@ -97,12 +108,6 @@ switch($action) {
         //     break;
         // }
 
-        // case "search": {
-        //     $data = $keyword->;
-        //     $template = ;
-        //     $title = ;
-        //     break;
-        // }
 
 }
 
@@ -113,4 +118,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "articleOnList_data" => $articleOnList_data, "deleteArticleShoppingList_data" => $deleteArticleShoppingList_data]);
+echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "articleOnList_data" => $articleOnList_data, "deleteArticleShoppingList_data" => $deleteArticleShoppingList_data, "search_data" => $search_data]);

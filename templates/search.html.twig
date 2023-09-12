@@ -1,0 +1,119 @@
+{% extends "main.html.twig" %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<div class="hero-image-holder">
+    <img class="hero-image__image" src="assets/img/nutrition-header.jpg"/>
+</div>
+
+
+{% for record in search_data %}
+<pre>
+    {{ dump(record) }}
+</pre>
+
+{% endfor %}
+
+<div class="container-fluid content__container-spacing">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row content__row-spacing--margin-right">
+
+                {# AGENDA #}
+                <div class="col-md-12 content__container-agenda-holder">
+                    <img class="content__container-agenda-image" src="assets/img/verrukkulluk-agenda.png"/>
+                    <div class="content__container-agenda-content-holder">
+                        <div class="content__container-agenda-items-holder">
+                            <span class="content__container-agenda-content--icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
+                                </svg>
+                            </span>
+                            <div class="content__container-agenda-content--text">
+                                <div class="pretty-lily content__container-agenda-content-text--title">Vegetarisch koken
+                                </div>
+                                <div class="content__container-agenda-content-text--description">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content__container-agenda-content-holder">
+                        <div class="content__container-agenda-items-holder">
+                            <span class="content__container-agenda-content--icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
+                                </svg>
+                            </span>
+                            <div class="content__container-agenda-content--text">
+                                <div class="pretty-lily content__container-agenda-content-text--title">Vegetarisch koken
+                                </div>
+                                <div class="content__container-agenda-content-text--description">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content__container-agenda-content-holder">
+                        <div class="content__container-agenda-items-holder">
+                            <span class="content__container-agenda-content--icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
+                                </svg>
+                            </span>
+                            <div class="content__container-agenda-content--text">
+                                <div class="pretty-lily content__container-agenda-content-text--title">Vegetarisch koken
+                                </div>
+                                <div class="content__container-agenda-content-text--description">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content__container-agenda-content-holder">
+                        <div class="content__container-agenda-items-holder">
+                            <span class="content__container-agenda-content--icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
+                                </svg>
+                            </span>
+                            <div class="content__container-agenda-content--text">
+                                <div class="pretty-lily content__container-agenda-content-text--title">Vegetarisch koken
+                                </div>
+                                <div class="content__container-agenda-content-text--description">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content__container-agenda-content-holder">
+                        <div class="content__container-agenda-items-holder">
+                            <span class="content__container-agenda-content--icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#ffffff}</style><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/>
+                                </svg>
+                            </span>
+                            <div class="content__container-agenda-content--text">
+                                <div class="pretty-lily content__container-agenda-content-text--title">Vegetarisch koken
+                                </div>
+                                <div class="content__container-agenda-content-text--description">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {# LOGIN #}
+                <div class="col-md-12 content__container-login-holder">
+                    <img class="content__container-login-image" src="assets/img/verrukkulluk-login.png"/>
+                    <div class="content__container-login-input-holder">
+                        <input class="content__container-login-input--email" placeholder="Email"/>
+                        <input class="content__container-login-input--password" placeholder="Wachtwoord"/>
+                    </div>
+                    <div class="pretty-lily content__container-login-button">
+                    <div class="content__container-login-button--text">
+                        Login
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+{% endblock %}
