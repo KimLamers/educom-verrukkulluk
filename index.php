@@ -48,7 +48,7 @@ $user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : null;
 $article_id = isset($_GET["article_id"]) ? $_GET["article_id"] : null;
 $rating = isset($_GET['rating']) ? $_GET['rating'] : 0;
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
-$keyword = isset($_GET["search_bar"]) ? $_GET["search_bar"] : null;
+$keyword = isset($_POST["search_bar"]) ? $_POST["search_bar"] : null;
 
 
 switch($action) {
@@ -119,4 +119,13 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data, "articleOnList_data" => $articleOnList_data, "deleteArticleShoppingList_data" => $deleteArticleShoppingList_data, "search_data" => $search_data]);
+
+if($action == "shoppinglist") {
+    echo $template->render(["title" => $title, "articleOnList_data" => $articleOnList_data,]);
+} elseif ($action == "deleteFromShoppingList") {
+    echo $template->render(["title" => $title, "deleteArticleShoppingList_data" => $deleteArticleShoppingList_data,]);
+} elseif ($action == "search") {
+    echo $template->render(["title" => $title, "search_data" => $search_data]);
+} else {
+    echo $template->render(["title" => $title, "data" => $data, "ingredient_data" => $ingredient_data, "comments_data" => $comments_data, "preparation_data" => $preparation_data]);
+}

@@ -107,15 +107,10 @@ html, body {
     width: 20px;
     height: 20px;
     display: block;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     position: absolute;
-    left: 10px;
-}
-
-.header__search-icon svg {
-    height: auto;
-    width: 20px;
+    margin-left: 10px;
     fill: var(--black);
 }
 

@@ -12,11 +12,7 @@ public function __construct($connection) {
 public function searchByKeyword($keyword) {
 
 
-    $button = $_GET['submit'];
-    $keyword = $_GET['search_bar'];
     $searchResults = [];
-
-   print_r($keyword);
 
     // query for recipes
     $sql_recipes = "SELECT *
