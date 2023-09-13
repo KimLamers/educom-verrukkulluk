@@ -1,9 +1,9 @@
 <?php
 //// Allereerst zorgen dat de "Autoloader" uit vendor opgenomen wordt:
-require_once("/Users/Kimmie/Projecten/Software/vendor/autoload.php");
+require_once("E:/Tijdelijke downloads/Programming/XAMPP/XAMPP/htdocs/vendor/autoload.php");
 
 /// Twig koppelen:
-$loader = new \Twig\Loader\FilesystemLoader("/Users/Kimmie/Projecten/educom-verrukkulluk/templates");
+$loader = new \Twig\Loader\FilesystemLoader("E:/Tijdelijke downloads/Programming/XAMPP/XAMPP/htdocs/educom-verrukkulluk/templates");
 /// VOOR PRODUCTIE:
 /// $twig = new \Twig\Environment($loader), ["cache" => "./cache/cc"]);
 
@@ -48,6 +48,7 @@ $user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : null;
 $article_id = isset($_GET["article_id"]) ? $_GET["article_id"] : null;
 $rating = isset($_GET['rating']) ? $_GET['rating'] : 0;
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+$keyword = isset($_GET["search_bar"]) ? $_GET["search_bar"] : null;
 
 
 switch($action) {
@@ -93,7 +94,7 @@ switch($action) {
         }
 
         case "search": {
-            $search_data = $search->searchByKeyword();
+            $search_data = $search->searchByKeyword($keyword);
             // $data = $keyword->;
             $template = 'search.html.twig';
             $title = "Zoekresultaten";

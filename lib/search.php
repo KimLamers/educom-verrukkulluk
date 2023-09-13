@@ -1,9 +1,5 @@
 <?php
 
-// input veld
-//      - alles moet te vinden zijn, zowel articles als      recipes
-//              - laadt kitchen/type in
-
 
 class search {
 
@@ -13,11 +9,14 @@ public function __construct($connection) {
     $this->connection = $connection;
 }
 
-public function searchByKeyword() {
+public function searchByKeyword($keyword) {
+
 
     $button = $_GET['submit'];
     $keyword = $_GET['search_bar'];
     $searchResults = [];
+
+   print_r($keyword);
 
     // query for recipes
     $sql_recipes = "SELECT *
