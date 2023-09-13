@@ -153,3 +153,20 @@ $('.shoppinglist__content-icon-holder svg').click(function() {
     })
 
 })
+
+$("[name='submit']").click(function() {
+
+    const button = $_GET['submit'];
+    const keyword = $_GET['search_bar'];
+
+    $.ajax ({
+        url: `index.php?action=search&search_bar=${ keyword }&submit=${ button }`,
+        method: "GET",
+        async: false,
+        success: function(result) {
+            console.log(keyword);
+            console.log(button);
+        }
+    })
+
+})

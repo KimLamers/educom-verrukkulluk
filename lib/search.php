@@ -1,16 +1,7 @@
 <?php
 
 // input veld
-//      - search bar
-//              - enter voor afronden keyword?
-//              - submit button?
-//      - wat te doen met input:
-//              - lowercase?
-//      - input sturen naar waar de sql query gemaakt wordt
-//      - resultaat van sql query weergeven op frontend
-//              - nieuwe pagina?
-//              - dropdown menu?
-//      - alles moet te vinden zijn, zowel articles als recipes
+//      - alles moet te vinden zijn, zowel articles als      recipes
 //              - laadt kitchen/type in
 
 
@@ -24,9 +15,8 @@ public function __construct($connection) {
 
 public function searchByKeyword() {
 
-    // $button = $_GET['submit'];
-    $keyword = 'vegan';
-    // $_GET['search_bar'];
+    $button = $_GET['submit'];
+    $keyword = $_GET['search_bar'];
     $searchResults = [];
 
     // query for recipes
@@ -38,10 +28,9 @@ public function searchByKeyword() {
 
     while($searchRecipes = mysqli_fetch_array($result_recipes)) {
         $searchResults[] = [
-            "recipe_id" => $searchRecipes['id'],
-            "recipe_title" => $searchRecipes['recipe_title'],
-            "recipe_description_short" => $searchRecipes['recipe_description_short'],
-            "recipe_image" => $searchRecipes['recipe_image'],
+            "name" => $searchRecipes['recipe_title'],
+            "description" => $searchRecipes['recipe_description_short'],
+            "image" => $searchRecipes['recipe_image'],
         ];
     }
 
@@ -55,12 +44,9 @@ public function searchByKeyword() {
     while($searchArticles = mysqli_fetch_array($result_articles)) {
         
         $searchResults[] = [
-            "article_id" => $searchArticles['id'],
-            "article_name" => $searchArticles['article_name'],
-            "article_description" => $searchArticles['article_description'],
-            "article_price" => $searchArticles['article_price'],
-            "article_packaging" => $searchArticles['article_packaging'],
-            "article_calories" => $searchArticles['article_calories'],
+            "name" => $searchArticles['article_name'],
+            "description" => $searchArticles['article_description'],
+            "image" => $searchArticles['article_packaging'],
         ];
     }
     return $searchResults;
@@ -68,13 +54,13 @@ public function searchByKeyword() {
 
 // Oplossing van René:
 // class zoek {
-//     private function findRecipes() {
-//         /// gaat naar alle recepten
+//     private function selectRecipeById() {
+//         /// gaat naar alle recepten wanneer null
 //     }
 
 //     public function search($keyword) {
 //         $found = [];
-//         $recipes = $this->findRecipes();
+//         $recipes = $this->selectRecipeById();
 //         foreach($recipes as $recipe) {
 //             $txt = json_encode($recipe);
 //             if(strcmp($keyword, $txt) > 0 ) {

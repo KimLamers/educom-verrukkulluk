@@ -9,14 +9,6 @@
     <img class="hero-image__image" src="assets/img/nutrition-header.jpg"/>
 </div>
 
-
-{% for record in search_data %}
-<pre>
-    {{ dump(record) }}
-</pre>
-
-{% endfor %}
-
 <div class="container-fluid content__container-spacing">
     <div class="row">
         <div class="col-md-3">
@@ -112,8 +104,37 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-9">
+            <div class="shoppinglist__content-holder">
+                <div class="shoppinglist__content-title-holder">
+                    <div class="pretty-lily shoppinglist__content-title-text">
+                        Zoekresultaten
+                    </div>
+                </div>
+                <div class="shoppinglist__content-articles-holder">
+                {% for record in search_data %}
 
-
-
-
+                    <div class="shoppinglist__content-articles-info-holder">
+                        <div class="table__content-image">
+                            <img class="table__content-image" src="{{ record.image }}"/>
+                        </div>
+                        <div class="table__content-text-holder">
+                            <div class="pretty-lily table__content-text-title">
+                                {{ record.name }}
+                            </div>
+                            <div class="table__content-text-description">
+                                {{ record.description }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="table__scroll">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
